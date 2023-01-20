@@ -11,8 +11,7 @@ List team members and/or short bio's here...
 * Hi, I'm Amy! I'm excited to join team 15! 
 * Corey McTavish - excited for this projects course
 * Fiona Wong- very excited for this project course
- 
->>>>>>> dfde502579f05d2d26f728992c6a7579a36b4498
+
 ## 3. Technologies and Resources Used
 
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
