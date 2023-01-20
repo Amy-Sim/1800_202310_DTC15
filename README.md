@@ -6,9 +6,9 @@ State your app in a nutshell, or one-sentence pitch. Give some elaboration on wh
 This browser based web application to ...
 
 ## 2. Names of Contributors
-<<<<<<< HEAD
+
 List team members and/or short bio's here... 
-* Hi, I'm Amy! I'm excited to join team 15! 
+* Amy Sim - I'm excited to join team 15! 
 * Corey McTavish - excited for this projects course
 * Fiona Wong- very excited for this project course
 
