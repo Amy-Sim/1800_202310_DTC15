@@ -1,6 +1,10 @@
-<<<<<<< HEAD
-.bigButton {
-    float: center;
+#bigButton img { 
+    /* float:center;
+    width: 20%
+    height: 20%
+    margin-left: none;
+    padding: 10px; */
+    /* align-self: center; */
+    /* width: 100%; */
+    
 }
-=======
->>>>>>> 3638465e8383c024ffd5ba3317cd0922432862c3
