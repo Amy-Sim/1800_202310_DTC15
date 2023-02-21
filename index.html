@@ -25,17 +25,6 @@
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
     <link rel="stylesheet" href="./styles/style.css">
     
-    <style> 
-    .img {
-    float:center;
-    width: 20%
-    height: 20%
-    margin-left: none;
-    padding: 10px; */
-    /* align-self: center; */
-    /* width: 100%; */
-    }  
-    </style>
 </head>
 
 <body>
@@ -69,19 +58,18 @@
 
 
         <!---Corey's code down here -->
-        <div class="alert alert-primary" role="alert">
-            <a href="https://www.theweathernetwork.com/ca" class="alert_a_tag">Click here for the current weather conditions</a>
+        <div class="alert yellow" role="alert">
+            <a href="https://www.theweathernetwork.com/ca" class="alert_a_tag"><b>Click here for the current weather conditions</b></a>
         </div>
 
 
 
 
-        <!---Amy's code down here -->
+        <!---Amy's code down here (corey edit to use bootstrap to center) -->
         <!-- buddy up logo -->
-        <div id="bigButton">
-            <img src="./images/buddyup.png"
-                alt="buddyupimg">
-        </div>
+        <img src="./images/buddyup.png" class="rounded mx-auto d-block" alt="buddyupimg">
+        
+        
 
 
 
@@ -92,6 +80,7 @@
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./scripts/firebaseAPI_LiftBuddy_DTC15.js"></script>
 
 </body>
 

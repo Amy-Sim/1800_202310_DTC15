@@ -1,3 +1,8 @@
 .alert_a_tag {
     text-decoration: none;
+    color: black;
+}
+
+.yellow {
+    background-color: yellow;
 }
