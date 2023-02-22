@@ -5,17 +5,20 @@
     <title>LiftBuddy</title>
     <meta name="LiftBuddy" content="My LiftBuddy App">
 
+    <!------------------------>
     <!-- Required meta tags -->
+    <!------------------------>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
-    <!-- Boostrap Library JS CDN  go here -->
+    <!------------------------------------------>
+    <!-- Bootstrap Library CSS JS CDN go here -->
+    <!------------------------------------------>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -27,47 +30,39 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
 
-    <!-- Other libraries go here -->
-    <!-- Google Icons (Material Design)-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Link to styles of your own -->
+    <!-------------------------------------------->
+    <!-- Other libraries and styles of your own -->
+    <!-------------------------------------------->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
-    <link rel="stylesheet" href="./styles/style.css">
-    
+
 </head>
 
 <body>
-
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
-    <!-- Nav bar -->
-    <nav id="navbarPlaceholder"></nav> <!-- (corey) placed the nav bar contents in nav.html like how it is setup in demo08-->
-    
-    <!---Corey's code down here -->
-    <!-- weather alert bar -->
-    <div class="alert yellow" role="alert">
-        <a href="https://www.theweathernetwork.com/ca" class="alert_a_tag"><b>Click here for the current weather conditions</b></a>
-    </div>
-    <!---Amy's code down here (corey edit to use bootstrap to center) -->
-    <!-- buddy up logo -->
-    <img src="./images/buddyup.png" class="rounded mx-auto d-block" alt="buddyupimg">
-        
-        
+    <!-- our own navbar goes here -->
+    <nav id="navbarPlaceholder"></nav>
 
-
-
+    <!-- the body of your page goes here -->
+    <!-- stuff -->
+    <div class="container text-center">
+        <img class="d-block mx-auto mb-4" src="./images/buddyup.png" alt="" width="200" height="200">
+        <h1>Welcome to LiftBuddy</h1>
+        <a href="login.html" class="btn btn-info" role="button">Log in</a>
+   </div>
+    <!-- our own footer goes here-->
+    <nav id="footerPlaceholder"></nav>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-
-    <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
     <script src="./scripts/firebaseAPI_LiftBuddy_DTC15.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
+
 </body>
 
 </html>
