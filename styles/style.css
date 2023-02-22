@@ -6,3 +6,7 @@
 .yellow {
     background-color: yellow;
 }
+
+.redirect {
+    text-decoration: none;
+}
