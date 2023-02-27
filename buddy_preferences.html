@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>LiftBuddy</title>
+    <meta name="LiftBuddy" content="My LiftBuddy App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+    <!-- Boostrap Library JS CDN  go here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
+
+    <!-- Other libraries go here -->
+    <!-- Google Icons (Material Design)-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Link to styles of your own -->
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <link rel="stylesheet" href="./styles/style.css">
+    
+</head>
+
+<body>
+
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+
+    <!-- Nav bar -->
+    <div class="container">
+        <nav id="navbarPlaceholder"></nav>
+        
+        <p>Note:</p>
+        <p>The application will pair you up based on proximity by default unless the following are switched on.</p>
+
+        <p>Order your buddy pairing preferences from highest priority to lowest priority:</p>
+        <p>Pairing by Proximity</p>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="Proximity" id="Proximity" value="option1" checked>
+            <label class="form-check-label" for="Proximity">
+              Highest priority
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="Proximity" id="Proximity" value="option2">
+            <label class="form-check-label" for="Proximity">
+              Medium priority
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="Proximity" id="Proximity" value="option3">
+            <label class="form-check-label" for="Proximity">
+              Lowest priority
+            </label>
+        </div>
+
+        <p>Pairing by Department</p>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="Department" id="Department" value="option1">
+            <label class="form-check-label" for="Department">
+              Highest priority
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="Department" id="Department" value="option2" checked>
+            <label class="form-check-label" for="Department">
+              Medium priority
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="Department" id="Department" value="option3">
+            <label class="form-check-label" for="Department">
+              Lowest priority
+            </label>
+        </div>
+
+        <p>Pairing by Gender</p>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="Gender" id="Gender" value="option1">
+            <label class="form-check-label" for="Gender">
+              Highest priority
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="Gender" id="Gender" value="option2">
+            <label class="form-check-label" for="Gender">
+              Medium priority
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="Gender" id="Gender" value="option3" checked>
+            <label class="form-check-label" for="Gender">
+              Lowest priority
+            </label>
+        </div>
+
+    </div>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+
+    <!-- Link to scripts of your own -->
+    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./scripts/firebaseAPI_LiftBuddy_DTC15.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+</body>
+
+</html>
