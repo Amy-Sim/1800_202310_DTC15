@@ -9,6 +9,13 @@
 
 .yellow {
     background-color: yellow;
+    margin-left: -5%;
+    margin-right: -5%;
+}
+
+.navbar {
+    margin-left: -5%;
+    margin-right: -5%;
 }
 
 .redirect {
@@ -20,7 +27,7 @@
 }
 
 .bigbutton img {
-    margin-top: 60px;
+    margin-top: 30px;
     margin-left: 0px;
     width: 100%;
 }
@@ -42,4 +49,68 @@
 
 #main_icons {
     font-size: 10px;
+}
+
+/* (Amy) search icon in nav bar */
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+#main_icons a {
+    text-decoration: none;
+}
+
+/* (Amy) search icon outline */
+.btn-outline-success {
+    border-radius: 5px;
+    padding: 0.1rem 0.1rem 0.1rem 0.5rem;
+}
+
+/* (Amy) search window style */
+/* Need to make search window wider!! */
+.form-control {
+    width: 150%;
+    border-radius: 5px;
+    padding: 0.1rem 1.1rem 0.1rem 1.5rem;
+}
+
+/* (Amy) search window outline style */
+.material-symbols-outlined {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-right: 0.5rem;
+}
+
+/* (Amy) main icon - href */
+#main_icons a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+/* (Amy) icon style */
+#main_icons span {
+    font-size: 30px;
+}
+
+#main_icons div {
+    font-size: 10px;
+}
+
+/* (Amy) home text alignment */
+#homeIcon {
+    margin-left:-10%;
+}
+
+/* (Amy) resource text alignment */
+#resourceIcon {
+    margin-right: 7%;
 }
