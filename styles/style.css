@@ -73,7 +73,7 @@
 /* (Amy) search window style */
 /* Need to make search window wider!! */
 .form-control {
-    width: 150%;
+    width: 200%;
     border-radius: 5px;
     padding: 0.1rem 1.1rem 0.1rem 1.5rem;
 }
@@ -113,4 +113,9 @@
 /* (Amy) resource text alignment */
 #resourceIcon {
     margin-right: 7%;
+}
+
+/* (Amy) User setting icon */
+#user_setting_icon {
+    margin-left: 5%
 }
