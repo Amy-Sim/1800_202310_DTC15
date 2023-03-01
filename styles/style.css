@@ -32,19 +32,18 @@
     width: 100%;
 }
 
-#account_setting {
-    width: 100px;
-}
-
 #account_setting a {
    text-decoration: none;
    color: black; 
 }
 
+/* (corey) try and avoid creating classes that are identical to preset bootstrap classes. You can override them with any name you want I believe for the specific thing you want to change.. i think ahah */
+/* (corey) this is the class that is causing the issue with the navbar I think */
+/* If this is being used somewhere else create a new class or id  */
 .d-flex {
-    width: 100%;
+    /* width: 100%;
     margin-left: -10px;
-    margin-right: 60px;
+    margin-right: 60px; */
 }
 
 .navbar-toggler {

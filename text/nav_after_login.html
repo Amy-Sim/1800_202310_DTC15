@@ -1,5 +1,5 @@
 <!--(Amy) nav bar -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <div class="row">
             <div class="container">
@@ -15,33 +15,36 @@
                         <form class="d-flex" role="search">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">
-                                <!-- (Amy) search icon, instead of "search" -->
+                                (Amy) search icon, instead of "search"
                                 <span class="material-symbols-outlined">
                                     search
                                 </span></button>
                         </form>
                     </div>
-            <!-- Hamburger menu is removed -->
-            <!-- <div class="col">
-                <button class="navbar-toggler">
-                    <a class="navbar-toggler-icon" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item e88a" href="#">User setting</a></li>
-                        <li><a class="dropdown-item" href="#">Buddy preference</a></li>
-                        <li><a class="dropdown-item" href="#">Help</a></li>
-                        <li><a class="dropdown-item" href="#">Resources</a></li>
-                    </ul>
-                </button>
-            </div> -->
                 </div>
             </div>
         </div>
     </div>
+</nav> -->
+<!-- (corey) commented out the old navbar, this one was having issues with the search bar staying close to the left side for some reason when moving to large screens -->
 
-
-</nav>
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid" id="account_setting">
+        <a href="account_settings.html">
+            <span class="material-symbols-outlined" id="user_setting_icon">
+                account_circle
+            </span>
+        </a>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+            </button>
+        </form>
+    </div>
+  </nav>
 
 <!-- weather alert -->
 <div class="alert yellow" role="alert">
