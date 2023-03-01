@@ -60,11 +60,13 @@
     <div class="container">
         <nav id="navbarPlaceholder"></nav>
         <br>
-        <p>Note:</p>
-        <p>The application will pair you up based on proximity by default unless the following are switched on.</p>
-
         <p>Order your buddy pairing preferences from highest priority to lowest priority:</p>
-        <p>Pairing by Proximity</p>
+
+        <div class="alert alert-warning d-flex align-items-center" role="alert">
+          <p>Note: your buddy preference by default will pair you up by proximity first, department second, and gender third unless otherwise specified</p>
+        </div>
+
+        <p id="buddy_preferences">Pairing by Proximity</p>
         <div class="form-check-inline">
             <input class="form-check-input" type="radio" name="Proximity" id="Proximity" value="option1" checked>
             <label class="form-check-label" for="Proximity">
@@ -84,7 +86,7 @@
             </label>
         </div>
 
-        <p>Pairing by Department</p>
+        <p id="buddy_preferences">Pairing by Department</p>
         <div class="form-check-inline">
             <input class="form-check-input" type="radio" name="Department" id="Department" value="option1">
             <label class="form-check-label" for="Department">
@@ -104,7 +106,7 @@
             </label>
         </div>
 
-        <p>Pairing by Gender</p>
+        <p id="buddy_preferences">Pairing by Gender</p>
         <div class="form-check-inline">
             <input class="form-check-input" type="radio" name="Gender" id="Gender" value="option1">
             <label class="form-check-label" for="Gender">
@@ -122,6 +124,14 @@
             <label class="form-check-label" for="Gender">
               Lowest priority
             </label>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+          <div class="row">
+            <div class="col"><button id="restore_default">Restore to Default</button></div>
+            <div class="col"><button id="save_user_preferences">Save changes</button></div>
+          </div>
         </div>
 
     </div>

@@ -123,3 +123,8 @@
 #user_setting_icon {
     margin-left: 5%;
 }
+
+#buddy_preferences {
+    margin-bottom: 0;
+    margin-top: 20px
+}
