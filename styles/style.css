@@ -2,6 +2,21 @@
     font-family: 'Manrope', sans-serif;
 }
 
+/* Back Button Style */
+button{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    border: none;
+}
+
+.previous.round {
+    background-color: #f1f1f1;
+    border-radius: 50%;
+}
+
+/* ################# */
+
 .alert_a_tag {
     text-decoration: none;
     color: black;
@@ -32,15 +47,18 @@
     width: 100%;
 }
 
-#logo {
-    width: 40px;
-    height: 40px;
+#account_setting a {
+    text-decoration: none;
+    color: black;
 }
 
+/* (corey) try and avoid creating classes that are identical to preset bootstrap classes. You can override them with any name you want I believe for the specific thing you want to change.. i think ahah */
+/* (corey) this is the class that is causing the issue with the navbar I think */
+/* If this is being used somewhere else create a new class or id  */
 .d-flex {
-    width: 100%;
+    /* width: 100%;
     margin-left: -10px;
-    margin-right: 60px;
+    margin-right: 60px; */
 }
 
 .navbar-toggler {
@@ -107,7 +125,7 @@
 
 /* (Amy) home text alignment */
 #homeIcon {
-    margin-left:-10%;
+    margin-left: -10%;
 }
 
 /* (Amy) resource text alignment */
@@ -117,5 +135,10 @@
 
 /* (Amy) User setting icon */
 #user_setting_icon {
-    margin-left: 5%
+    margin-left: 5%;
+}
+
+#buddy_preferences {
+    margin-bottom: 0;
+    margin-top: 20px
 }

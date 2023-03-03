@@ -58,13 +58,22 @@
 
     <!-- Nav bar -->
     <div class="container">
-        <nav id="navbarPlaceholder"></nav>
-        
-        <p>Note:</p>
-        <p>The application will pair you up based on proximity by default unless the following are switched on.</p>
+      <nav id="navbarPlaceholder"></nav>
+    </div>
+    <div class="container">
+      <button class="previous round" onclick="history.back()"> <span class="material-symbols-outlined">
+          arrow_back_ios
+          </span> </button>
+    </div>
+    <div class="container">
+        <br>
+        <!-- <p>Order your buddy pairing preferences from highest priority to lowest priority:</p> -->
 
-        <p>Order your buddy pairing preferences from highest priority to lowest priority:</p>
-        <p>Pairing by Proximity</p>
+        <div class="alert alert-warning d-flex align-items-center" role="alert">
+          Note: your buddy preference by default will pair you up with the closest person to you.
+        </div>
+
+        <!-- <p id="buddy_preferences">Pair by Proximity</p>
         <div class="form-check-inline">
             <input class="form-check-input" type="radio" name="Proximity" id="Proximity" value="option1" checked>
             <label class="form-check-label" for="Proximity">
@@ -84,7 +93,7 @@
             </label>
         </div>
 
-        <p>Pairing by Department</p>
+        <p id="buddy_preferences">Pair by Department</p>
         <div class="form-check-inline">
             <input class="form-check-input" type="radio" name="Department" id="Department" value="option1">
             <label class="form-check-label" for="Department">
@@ -104,7 +113,7 @@
             </label>
         </div>
 
-        <p>Pairing by Gender</p>
+        <p id="buddy_preferences">Pair by Gender</p>
         <div class="form-check-inline">
             <input class="form-check-input" type="radio" name="Gender" id="Gender" value="option1">
             <label class="form-check-label" for="Gender">
@@ -121,10 +130,53 @@
             <input class="form-check-input" type="radio" name="Gender" id="Gender" value="option3" checked>
             <label class="form-check-label" for="Gender">
               Lowest priority
-            </label>
+            </label> -->
+        <!-- </div> -->
+        <br>
+        <p>Turn on the following buddy preferences if you want us to take these into account when pairing you up:</p>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Department</label>
         </div>
+        <br>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Gender</label>
+        </div>
+        <br>
+        <br>
+        <!-- <div class="container">
+          <div class="row">
+            <div class="col"><button id="restore_default">Restore to Default</button></div>
+            <div class="col"><button id="save_user_preferences">Save changes</button></div>
+          </div>
+        </div> -->
 
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Save Changes
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <!-- <div class="modal-body">
+                ...
+              </div> -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Restore to Default</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
+
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
