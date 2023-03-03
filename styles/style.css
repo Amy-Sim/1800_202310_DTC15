@@ -2,6 +2,20 @@
     font-family: 'Manrope', sans-serif;
 }
 
+/* Back Button Style */
+button{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    border: none;
+}
+
+.previous.round {
+    background-color: #f1f1f1;
+    border-radius: 50%;
+ }
+/* ################# */
+
 .alert_a_tag {
     text-decoration: none;
     color: black;
@@ -33,8 +47,8 @@
 }
 
 #account_setting a {
-   text-decoration: none;
-   color: black; 
+    text-decoration: none;
+    color: black;
 }
 
 /* (corey) try and avoid creating classes that are identical to preset bootstrap classes. You can override them with any name you want I believe for the specific thing you want to change.. i think ahah */
@@ -110,7 +124,7 @@
 
 /* (Amy) home text alignment */
 #homeIcon {
-    margin-left:-10%;
+    margin-left: -10%;
 }
 
 /* (Amy) resource text alignment */
