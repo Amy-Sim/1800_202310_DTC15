@@ -21,8 +21,11 @@ var uiConfig = {
                     name: user.displayName,                      //"users" collection
                     email: user.email,                           //with authenticated user's ID (user.uid)
                     country: "Canada",                           //optional default profile info      
-										school: "BCIT",                              //optional default profile info
-                    department: "Computer Systems Technology"    //optional default profile info
+										buddyPreferences: {    // (corey) added buddyPreferences by adding a key-value pairs
+                      Department: false,
+                      Gender: false,
+                    },
+                    buddyPairings: [],     // (corey) added buddyPairings by initializing an empty array
               }).then(function () {
                     console.log("New user added to firestore");
                     window.location.assign("main.html");         //re-direct to main.html after signup
