@@ -67,91 +67,22 @@
     </div>
     <div class="container">
         <br>
-        <!-- <p>Order your buddy pairing preferences from highest priority to lowest priority:</p> -->
-
         <div class="alert alert-warning d-flex align-items-center" role="alert">
           Note: your buddy preference by default will pair you up with the closest person to you.
         </div>
-
-        <!-- <p id="buddy_preferences">Pair by Proximity</p>
-        <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="Proximity" id="Proximity" value="option1" checked>
-            <label class="form-check-label" for="Proximity">
-              Highest priority
-            </label>
-        </div>
-        <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="Proximity" id="Proximity" value="option2">
-            <label class="form-check-label" for="Proximity">
-              Medium priority
-            </label>
-        </div>
-        <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="Proximity" id="Proximity" value="option3">
-            <label class="form-check-label" for="Proximity">
-              Lowest priority
-            </label>
-        </div>
-
-        <p id="buddy_preferences">Pair by Department</p>
-        <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="Department" id="Department" value="option1">
-            <label class="form-check-label" for="Department">
-              Highest priority
-            </label>
-        </div>
-        <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="Department" id="Department" value="option2" checked>
-            <label class="form-check-label" for="Department">
-              Medium priority
-            </label>
-        </div>
-        <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="Department" id="Department" value="option3">
-            <label class="form-check-label" for="Department">
-              Lowest priority
-            </label>
-        </div>
-
-        <p id="buddy_preferences">Pair by Gender</p>
-        <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="Gender" id="Gender" value="option1">
-            <label class="form-check-label" for="Gender">
-              Highest priority
-            </label>
-        </div>
-        <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="Gender" id="Gender" value="option2">
-            <label class="form-check-label" for="Gender">
-              Medium priority
-            </label>
-        </div>
-        <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="Gender" id="Gender" value="option3" checked>
-            <label class="form-check-label" for="Gender">
-              Lowest priority
-            </label> -->
-        <!-- </div> -->
         <br>
         <p>Turn on the following buddy preferences if you want us to take these into account when pairing you up:</p>
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault">Department</label>
+          <input class="form-check-input" type="checkbox" role="switch" id="departmentSwitch">
+          <label class="form-check-label" for="departmentSwitch">Department</label>
         </div>
         <br>
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault">Gender</label>
+          <input class="form-check-input" type="checkbox" role="switch" id="genderSwitch">
+          <label class="form-check-label" for="genderSwitch">Gender</label>
         </div>
         <br>
         <br>
-        <!-- <div class="container">
-          <div class="row">
-            <div class="col"><button id="restore_default">Restore to Default</button></div>
-            <div class="col"><button id="save_user_preferences">Save changes</button></div>
-          </div>
-        </div> -->
-
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Save Changes
@@ -170,7 +101,7 @@
               </div> -->
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Restore to Default</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-primary" id="saveBuddyPreferences" data-bs-dismiss="modal">Save</button>
               </div>
             </div>
           </div>
