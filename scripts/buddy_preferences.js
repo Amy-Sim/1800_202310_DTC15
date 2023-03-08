@@ -12,5 +12,3 @@ document.getElementById("saveBuddyPreferences").addEventListener("click", functi
         console.log("Error saving buddy preferences: " + error);
     });
 });
-
-
