@@ -90,8 +90,9 @@ button{
 
 /* (Amy) search window style */
 /* Need to make search window wider!! */
+/* (corey) try using a brand new class, not editing a broad bootstrap class because when adding other things that use the same class it will have weird effects, I had to comment out this width 200% */
 .form-control {
-    width: 200%;
+    /* width: 200%; */
     border-radius: 5px;
     padding: 0.1rem 1.1rem 0.1rem 1.5rem;
 }
