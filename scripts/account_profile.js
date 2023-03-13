@@ -19,11 +19,23 @@ function populateUserInfo() {
                     if (userName != null) {
                         document.getElementById("nameInput").value = userName;
                     }
-                    if (userDepartment != null) {
-                        document.getElementById("departmentInput").value = userDepartment;
+
+                    if (userDoc.data().department == "Computer Systems Technology") {
+                        document.getElementById("cstInput").checked = true;
+                    } else if (userDoc.data().department == "Computer Information Technology") {
+                        document.getElementById("citInput").checked = true;
+                    } else {
+                        document.getElementById("otherDepartmentInput").checked = true;
+                        document.getElementById("departmentSpecify").value = userDepartment
                     }
-                    if (userGender != null) {
-                        document.getElementById("genderInput").value = userGender;
+
+                    if (userDoc.data().gender == "male") {
+                        document.getElementById("maleInput").checked = true;
+                    } else if (userDoc.data().gender == "female") {
+                        document.getElementById("femaleInput").checked = true;
+                    } else {
+                        document.getElementById("othergenderInput").checked = true;
+                        document.getElementById("genderSpecify").value = userGender
                     }
                     if (userDoc.data().type == "driver") {
                         document.getElementById("driverInput").checked = true;
@@ -52,12 +64,28 @@ function saveUserInfo() {
     
     //a) get user entered values
     var userName = document.getElementById("nameInput").value;
-    var userDepartment = document.getElementById("departmentInput").value;
-    var userGender = document.getElementById("genderInput").value;
+    // var userDepartment = document.getElementById("departmentInput").value;
+    // get user type
     if (document.getElementById("driverInput").checked == true) {
         var userType = "driver";
     } else if (document.getElementById("passengerInput").checked == true) {
         var userType = "passenger";
+    }
+    // get user gender
+    if (document.getElementById("maleInput").checked == true) {
+        var userGender = "male"
+    } else if (document.getElementById("femaleInput").checked == true) {
+        var userGender = "female"
+    } else if (document.getElementById("othergenderInput").checked == true){
+        var userGender = document.getElementById("genderSpecify").value;
+    }
+    // get user department
+    if (document.getElementById("cstInput").checked == true) {
+        var userDepartment = "Computer Systems Technology"
+    } else if (document.getElementById("citInput").checked == true) {
+        var userDepartment = "Computer Information Technology"
+    } else if (document.getElementById("otherDepartmentInput").checked == true){
+        var userDepartment = document.getElementById("departmentSpecify").value;
     }
     console.log(userName, userDepartment, userGender)
     //b) update user's document in Firestore

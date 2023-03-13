@@ -73,23 +73,63 @@
                     <label >Name</label>
                     <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
                 </div>
-                <div class="form-group">
-                    <label >Department</label>
-                    <input type="text" id="departmentInput" class="form-control" placeholder="Enter your Department">
-                </div>
-                <div class="form-group">
-                    <label >Gender</label>
-                    <input type="text" id="genderInput" class="form-control" placeholder="Enter your Gender">
-                </div>
                 <br>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="driverInput">
+                    <label>Department</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="departmentInput" id="cstInput">
+                    <label class="form-check-label" for="cstInput">
+                        Computer Systems Technology
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="departmentInput" id="citInput">
+                    <label class="form-check-label" for="citInput">
+                        Computer Information Technology
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="departmentInput" id="otherDepartmentInput">
+                    <label class="form-check-label" for="otherDepartmentInput">
+                        Other, Specify (optional):
+                    </label>
+                    <input type="text" id="departmentSpecify" class="form-control" placeholder="other">
+                </div>
+                <br>
+                <!-- User can choose from Male, Female, or Other and specify if they don't fit into those categories -->
+                <div class="form-check">
+                    <label>Gender</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="genderInput" id="maleInput">
+                    <label class="form-check-label" for="maleInput">
+                        Male
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="genderInput" id="femaleInput">
+                    <label class="form-check-label" for="femaleInput">
+                        Female
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="genderInput" id="othergenderInput">
+                    <label class="form-check-label" for="othergenderInput">
+                        Other, Specify (optional):
+                    </label>
+                    <input type="text" id="genderSpecify" class="form-control" placeholder="other">
+                </div>
+                <br>
+                <!-- User can easily change if they're a Driver or a Passenger -->
+                <div class="form-check">
+                    <label>Are you a Driver or a Passenger?</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="typeOfUser" id="driverInput">
                     <label class="form-check-label" for="driverInput">
                         Driver
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="passengerInput">
+                    <input class="form-check-input" type="radio" name="typeOfUser" id="passengerInput">
                     <label class="form-check-label" for="passengerInput">
                         Passenger
                     </label>
@@ -101,6 +141,7 @@
                 <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
             </div>
         </form>
+        <br>
     </div>
 
 
