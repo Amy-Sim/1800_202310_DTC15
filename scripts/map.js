@@ -1,4 +1,4 @@
-function showMap() {
+function showMap(user, current_user_lat) {
   // Defines basic mapbox data
   mapboxgl.accessToken =
     "pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ";
@@ -24,11 +24,10 @@ function showMap() {
         map.addImage("eventpin", image); // Pin Icon
 
         // READING information from "events" collection in Firestore
-        db.collection("hikes")
+        db.collection("users")
           .get()
           .then((allEvents) => {
             const features = []; // Defines an empty array for information to be added to
-
             allEvents.forEach((doc) => {
               lat = doc.data().lat;
               lng = doc.data().lng;
@@ -36,16 +35,15 @@ function showMap() {
               coordinates = [lng, lat];
               console.log(coordinates);
               // Coordinates
-              event_name = doc.data().name; // Event Name
-              preview = doc.data().details; // Text Preview
-              // img = doc.data().posterurl; // Image
-              // url = doc.data().link; // URL
-
+              user_name = doc.data().name; // User Name
+              gender = doc.data().gender; // User Gender
+              department = doc.data().department; // User Department
+          
               // Pushes information into the features array
               features.push({
                 type: "Feature",
                 properties: {
-                  description: `<strong>${event_name}</strong><p>${preview}</p> <br> <a href="/hike.html?id=${doc.id}" target="_blank" title="Opens in a new window">Read more</a>`,
+                  description: `<strong>${user_name}</strong><p>${gender}</p> <br> <p>${department}</p>`,
                 },
                 geometry: {
                   type: "Point",
@@ -183,5 +181,26 @@ function showMap() {
   });
 }
 
+// Save the user's location to Firestore
+function storeUserLocation(user) {
+  latitude = navigator.geolocation.getCurrentPosition((position) => {
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
+    console.log("This is my coords: " + lat + " " + lng);
+    db.collection("users").doc(user.uid).update({
+      lat,
+      lng,
+    });
+  })
+}
+
+$(document).ready(function () {
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      storeUserLocation(user)
+      showMap(user);
+    }
+  })
 // Call the function to display the map with the user's location and event pins
-showMap();
+  
+});
