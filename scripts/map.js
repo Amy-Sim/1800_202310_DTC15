@@ -46,7 +46,11 @@ function showMap(user, current_user_lat) {
                 features.push({
                   type: "Feature",
                   properties: {
-                    description: `<strong>${user_name}</strong><p>${gender}</p> <br> <p>${department}</p> <br> <p>${type}</p>`,
+                    description: `<strong>${user_name}</strong>
+                                  <p>${gender}</p> 
+                                  <p>${department}</p> 
+                                  <p>${type}</p>
+                                  <button>Ask to BuddyUp</button>`,
                   },
                   geometry: {
                     type: "Point",
