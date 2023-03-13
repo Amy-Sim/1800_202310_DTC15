@@ -29,6 +29,8 @@ function showMap(user, current_user_lat) {
           .then((allEvents) => {
             const features = []; // Defines an empty array for information to be added to
             allEvents.forEach((doc) => {
+              let ID = doc.id
+              console.log(ID);
               lat = doc.data().lat;
               lng = doc.data().lng;
               console.log(lat, lng);
@@ -39,18 +41,19 @@ function showMap(user, current_user_lat) {
               gender = doc.data().gender; // User Gender
               department = doc.data().department; // User Department
               type = doc.data().type; // User Type
-              
-              // Pushes information into the features array
-              features.push({
-                type: "Feature",
-                properties: {
-                  description: `<strong>${user_name}</strong><p>${gender}</p> <br> <p>${department}</p> <br> <p>${type}</p>`,
-                },
-                geometry: {
-                  type: "Point",
-                  coordinates: coordinates,
-                },
-              });
+              if (ID != user.uid) {
+                // Pushes information into the features array
+                features.push({
+                  type: "Feature",
+                  properties: {
+                    description: `<strong>${user_name}</strong><p>${gender}</p> <br> <p>${department}</p> <br> <p>${type}</p>`,
+                  },
+                  geometry: {
+                    type: "Point",
+                    coordinates: coordinates,
+                  },
+                });
+              }
             });
 
             // Adds features as a source to the map
