@@ -19,11 +19,16 @@ function populateUserInfo() {
                     if (userName != null) {
                         document.getElementById("nameInput").value = userName;
                     }
-                    if (userSchool != null) {
+                    if (userDepartment != null) {
                         document.getElementById("departmentInput").value = userDepartment;
                     }
-                    if (userCity != null) {
+                    if (userGender != null) {
                         document.getElementById("genderInput").value = userGender;
+                    }
+                    if (userDoc.data().type == "driver") {
+                        document.getElementById("driverInput").checked = true;
+                    } else if (userDoc.data().type == "passenger") {
+                        document.getElementById("passengerInput").checked = true;
                     }
                 })
         } else {
@@ -49,12 +54,18 @@ function saveUserInfo() {
     var userName = document.getElementById("nameInput").value;
     var userDepartment = document.getElementById("departmentInput").value;
     var userGender = document.getElementById("genderInput").value;
+    if (document.getElementById("driverInput").checked == true) {
+        var userType = "driver";
+    } else if (document.getElementById("passengerInput").checked == true) {
+        var userType = "passenger";
+    }
     console.log(userName, userDepartment, userGender)
     //b) update user's document in Firestore
     currentUser.update({
         name: userName,
         department: userDepartment,
-        gender: userGender
+        gender: userGender,
+        type: userType
     })
     .then(() => {
         console.log("Document successfully updated!");

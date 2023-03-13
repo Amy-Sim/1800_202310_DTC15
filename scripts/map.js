@@ -38,12 +38,13 @@ function showMap(user, current_user_lat) {
               user_name = doc.data().name; // User Name
               gender = doc.data().gender; // User Gender
               department = doc.data().department; // User Department
-          
+              type = doc.data().type; // User Type
+              
               // Pushes information into the features array
               features.push({
                 type: "Feature",
                 properties: {
-                  description: `<strong>${user_name}</strong><p>${gender}</p> <br> <p>${department}</p>`,
+                  description: `<strong>${user_name}</strong><p>${gender}</p> <br> <p>${department}</p> <br> <p>${type}</p>`,
                 },
                 geometry: {
                   type: "Point",
