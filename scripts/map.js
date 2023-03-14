@@ -1,4 +1,4 @@
-function showMap(currentUser, currentUserDepartmentPreferences, currentUserGenderPreferences, currentUserGender, currentUserDepartment) {
+function showMap(currentUser, currentUserDepartmentPreferences, currentUserGenderPreferences, currentUserGender, currentUserDepartment, currentUserType) {
   // Defines basic mapbox data
   mapboxgl.accessToken =
     "pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ";
@@ -46,22 +46,78 @@ function showMap(currentUser, currentUserDepartmentPreferences, currentUserGende
               console.log(genderPreference, departmentPreference, gender, department)
               console.log(currentUserGenderPreferences, currentUserDepartmentPreferences, currentUserGender, currentUserDepartment)
                // User Type
-              if (ID != currentUser.uid) {
-                // Pushes information into the features array
-                features.push({
-                  type: "Feature",
-                  properties: {
-                    description: `<strong>${user_name}</strong>
-                                  <p>Gender: ${gender}</p> 
-                                  <p>Department: ${department}</p> 
-                                  <p>I am a: ${type}</p>
-                                  <button id="BuddyUp">Ask to BuddyUp</button>`,
-                  },
-                  geometry: {
-                    type: "Point",
-                    coordinates: coordinates,
-                  },
-                });
+              if (ID != currentUser.uid && currentUserType != type) {
+                if (currentUserGender == gender && currentUserDepartment == department) {
+                  // Pushes information into the features array
+                  features.push({
+                    type: "Feature",
+                    properties: {
+                      description: `<strong>${user_name}</strong>
+                                    <p>Gender: ${gender}</p> 
+                                    <p>Department: ${department}</p> 
+                                    <p>I am a: ${type}</p>
+                                    <button id="BuddyUp">Ask to BuddyUp</button>`,
+                    },
+                    geometry: {
+                      type: "Point",
+                      coordinates: coordinates,
+                    },
+                  });
+                } else if (currentUserGender == gender && currentUserDepartment != department) {
+                  if (currentUserDepartmentPreferences == false && departmentPreference == false) {
+                    // Pushes information into the features array
+                    features.push({
+                      type: "Feature",
+                      properties: {
+                        description: `<strong>${user_name}</strong>
+                                      <p>Gender: ${gender}</p> 
+                                      <p>Department: ${department}</p> 
+                                      <p>I am a: ${type}</p>
+                                      <button id="BuddyUp">Ask to BuddyUp</button>`,
+                      },
+                      geometry: {
+                        type: "Point",
+                        coordinates: coordinates,
+                      },
+                    });
+                  }
+                } else if (currentUserGender != gender && currentUserDepartment != department) {
+                  if (currentUserDepartmentPreferences == false && departmentPreference == false && currentUserGenderPreferences == false && genderPreference == false) {
+                    // Pushes information into the features array
+                    features.push({
+                      type: "Feature",
+                      properties: {
+                        description: `<strong>${user_name}</strong>
+                                      <p>Gender: ${gender}</p> 
+                                      <p>Department: ${department}</p> 
+                                      <p>I am a: ${type}</p>
+                                      <button id="BuddyUp">Ask to BuddyUp</button>`,
+                      },
+                      geometry: {
+                        type: "Point",
+                        coordinates: coordinates,
+                      },
+                    });
+                  }
+                } else if (currentUserGender != gender && currentUserDepartment == department) {
+                  if (currentUserGenderPreferences == false && genderPreference == false) {
+                    // Pushes information into the features array
+                    features.push({
+                      type: "Feature",
+                      properties: {
+                        description: `<strong>${user_name}</strong>
+                                      <p>Gender: ${gender}</p> 
+                                      <p>Department: ${department}</p> 
+                                      <p>I am a: ${type}</p>
+                                      <button id="BuddyUp">Ask to BuddyUp</button>`,
+                      },
+                      geometry: {
+                        type: "Point",
+                        coordinates: coordinates,
+                      },
+                    });
+                  }
+                }
               }
             });
             // Adds features as a source to the map
@@ -224,9 +280,10 @@ $(document).ready(function () {
           var genderPreferences = doc.data().genderPreference;
           var gender = doc.data().gender
           var department = doc.data().department
-          console.log(genderPreferences, departmentPreferences, gender, department)
+          var type = doc.data().type
+          console.log(genderPreferences, departmentPreferences, gender, department, type)
           storeUserLocation(user)
-          showMap(user, departmentPreferences, genderPreferences, gender, department);
+          showMap(user, departmentPreferences, genderPreferences, gender, department, type);
         }
       })
       
