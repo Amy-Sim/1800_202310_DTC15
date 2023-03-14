@@ -1,4 +1,4 @@
-function showMap(user, current_user_lat) {
+function showMap(currentUser, currentUserDepartmentPreferences, currentUserGenderPreferences, currentUserGender, currentUserDepartment) {
   // Defines basic mapbox data
   mapboxgl.accessToken =
     "pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ";
@@ -40,16 +40,21 @@ function showMap(user, current_user_lat) {
               user_name = doc.data().name; // User Name
               gender = doc.data().gender; // User Gender
               department = doc.data().department; // User Department
-              type = doc.data().type; // User Type
-              if (ID != user.uid) {
+              type = doc.data().type;
+              genderPreference = doc.data().genderPreference;
+              departmentPreference = doc.data().departmentPreference;
+              console.log(genderPreference, departmentPreference, gender, department)
+              console.log(currentUserGenderPreferences, currentUserDepartmentPreferences, currentUserGender, currentUserDepartment)
+               // User Type
+              if (ID != currentUser.uid) {
                 // Pushes information into the features array
                 features.push({
                   type: "Feature",
                   properties: {
                     description: `<strong>${user_name}</strong>
-                                  <p>${gender}</p> 
-                                  <p>${department}</p> 
-                                  <p>${type}</p>
+                                  <p>Gender: ${gender}</p> 
+                                  <p>Department: ${department}</p> 
+                                  <p>I am a: ${type}</p>
                                   <button>Ask to BuddyUp</button>`,
                   },
                   geometry: {
@@ -59,7 +64,6 @@ function showMap(user, current_user_lat) {
                 });
               }
             });
-
             // Adds features as a source to the map
             map.addSource("places", {
               type: "geojson",
@@ -68,7 +72,6 @@ function showMap(user, current_user_lat) {
                 features: features,
               },
             });
-
             // Creates a layer above the map displaying the pins
             map.addLayer({
               id: "places",
@@ -81,36 +84,30 @@ function showMap(user, current_user_lat) {
                 "icon-allow-overlap": true, // Allows icons to overlap
               },
             });
-
             // Map On Click function that creates a popup, displaying previously defined information from "events" collection in Firestore
             map.on("click", "places", (e) => {
               // Copy coordinates array.
               const coordinates = e.features[0].geometry.coordinates.slice();
               const description = e.features[0].properties.description;
-
               // Ensure that if the map is zoomed out such that multiple copies of the feature are visible, the popup appears over the copy being pointed to.
               while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                 coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
               }
-
               new mapboxgl.Popup()
                 .setLngLat(coordinates)
                 .setHTML(description)
                 .addTo(map);
             });
-
             // Change the cursor to a pointer when the mouse is over the places layer.
             map.on("mouseenter", "places", () => {
               map.getCanvas().style.cursor = "pointer";
             });
-
             // Defaults cursor when not hovering over the places layer
             map.on("mouseleave", "places", () => {
               map.getCanvas().style.cursor = "";
             });
           });
-      }
-    );
+      });
 
     // Add the image to the map style.
     map.loadImage(
@@ -205,8 +202,19 @@ function storeUserLocation(user) {
 $(document).ready(function () {
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
-      storeUserLocation(user)
-      showMap(user);
+      db.collection("users").doc(user.uid).get().then(function(doc) {
+        if (doc.exists) {
+          var currentUserPreferences = doc.data().buddyPreferences;
+          var departmentPreferences = currentUserPreferences.Department;
+          var genderPreferences = currentUserPreferences.Gender
+          var gender = doc.data().gender
+          var department = doc.data().department
+          console.log(departmentPreferences, genderPreferences, gender, department)
+          storeUserLocation(user)
+          showMap(user, departmentPreferences, genderPreferences, gender, department);
+        }
+      })
+      
     }
   })
 // Call the function to display the map with the user's location and event pins

@@ -4,11 +4,12 @@ $(document).ready(function () {
         if (user) {
             db.collection("users").doc(user.uid).get().then(function(doc) {
                 if (doc.exists) {
-                    var buddyPreferences = doc.data().buddyPreferences;
-                    if (buddyPreferences.Department == true) {
+                    var departmentPreference = doc.data().departmentPreference;
+                    var genderPreference = doc.data().genderPreference;
+                    if (departmentPreference == true) {
                         document.getElementById("departmentSwitch").checked = true;
                     }
-                    if (buddyPreferences.Gender == true) {
+                    if (genderPreference == true) {
                         document.getElementById("genderSwitch").checked = true;
                     }
                 }
@@ -17,12 +18,11 @@ $(document).ready(function () {
     });
     document.getElementById("saveBuddyPreferences").addEventListener("click", function() {
         var user = firebase.auth().currentUser;
-        var buddyPreferences = {
-            Department: document.getElementById("departmentSwitch").checked,
-            Gender: document.getElementById("genderSwitch").checked,
-        }
+        var departmentPreference = document.getElementById("departmentSwitch").checked
+        var genderPreference = document.getElementById("genderSwitch").checked
         db.collection("users").doc(user.uid).update({
-            buddyPreferences: buddyPreferences,
+            departmentPreference: departmentPreference,
+            genderPreference: genderPreference
         }, {merge: true}).then(function() {
             console.log("Buddy preferences saved");
         }).catch(function(error) {

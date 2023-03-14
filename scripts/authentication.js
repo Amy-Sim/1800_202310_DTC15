@@ -20,11 +20,9 @@ var uiConfig = {
             db.collection("users").doc(user.uid).set({           //write to firestore. We are using the UID for the ID in users collection
                     name: user.displayName,                      //"users" collection
                     email: user.email,                           //with authenticated user's ID (user.uid)
-                    country: "Canada",                           //optional default profile info      
-										buddyPreferences: {    // (corey) added buddyPreferences by adding a key-value pairs
-                      Department: false,
-                      Gender: false,
-                    },
+                    country: "Canada",
+                    genderPreference: false,                     // (corey) added genderPreferences    
+										departmentPreference: false,                 // (corey) added departmentPreferences
                     buddyPairings: [],     // (corey) added buddyPairings by initializing an empty array
               }).then(function () {
                     console.log("New user added to firestore");
