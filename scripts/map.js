@@ -204,12 +204,11 @@ $(document).ready(function () {
     if (user) {
       db.collection("users").doc(user.uid).get().then(function(doc) {
         if (doc.exists) {
-          var currentUserPreferences = doc.data().buddyPreferences;
-          var departmentPreferences = currentUserPreferences.Department;
-          var genderPreferences = currentUserPreferences.Gender
+          var departmentPreferences = doc.data().departmentPreference;
+          var genderPreferences = doc.data().genderPreference;
           var gender = doc.data().gender
           var department = doc.data().department
-          console.log(departmentPreferences, genderPreferences, gender, department)
+          console.log(genderPreferences, departmentPreferences, gender, department)
           storeUserLocation(user)
           showMap(user, departmentPreferences, genderPreferences, gender, department);
         }
