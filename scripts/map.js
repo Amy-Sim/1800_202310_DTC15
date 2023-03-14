@@ -55,7 +55,7 @@ function showMap(currentUser, currentUserDepartmentPreferences, currentUserGende
                                   <p>Gender: ${gender}</p> 
                                   <p>Department: ${department}</p> 
                                   <p>I am a: ${type}</p>
-                                  <button>Ask to BuddyUp</button>`,
+                                  <button id="BuddyUp">Ask to BuddyUp</button>`,
                   },
                   geometry: {
                     type: "Point",
