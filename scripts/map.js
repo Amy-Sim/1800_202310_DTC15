@@ -199,7 +199,23 @@ function storeUserLocation(user) {
   })
 }
 
+
 $(document).ready(function () {
+
+  // (Amy's code) Add the button onclick eent funciion here:
+
+
+
+
+
+
+
+
+
+
+
+
+
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       db.collection("users").doc(user.uid).get().then(function(doc) {
