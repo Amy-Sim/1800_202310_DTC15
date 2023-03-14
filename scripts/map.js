@@ -36,7 +36,6 @@ function showMap(currentUser, currentUserDepartmentPreferences, currentUserGende
               console.log(lat, lng);
               coordinates = [lng, lat];
               console.log(coordinates);
-              // Coordinates
               user_name = doc.data().name; // User Name
               gender = doc.data().gender; // User Gender
               department = doc.data().department; // User Department
@@ -45,7 +44,7 @@ function showMap(currentUser, currentUserDepartmentPreferences, currentUserGende
               departmentPreference = doc.data().departmentPreference;
               console.log(genderPreference, departmentPreference, gender, department)
               console.log(currentUserGenderPreferences, currentUserDepartmentPreferences, currentUserGender, currentUserDepartment)
-               // User Type
+              // (corey) added a control structure to account for the current user's preferences and each user's preferences
               if (ID != currentUser.uid && currentUserType != type) {
                 if (currentUserGender == gender && currentUserDepartment == department) {
                   // Pushes information into the features array
