@@ -23,6 +23,9 @@ var uiConfig = {
                     country: "Canada",
                     genderPreference: false,                     // (corey) added genderPreferences    
 										departmentPreference: false,                 // (corey) added departmentPreferences
+                    gender: "please specify",
+                    department: "Computer Systems Technology",
+                    type: "passenger",                           // (corey) added type, made passenger the default                            
                     buddyPairings: [],     // (corey) added buddyPairings by initializing an empty array
               }).then(function () {
                     console.log("New user added to firestore");
