@@ -113,6 +113,7 @@ function showMap(
     });
 
 
+    
   // Add user controls to map
   map.addControl(new mapboxgl.NavigationControl());
 
