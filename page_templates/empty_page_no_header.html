@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- (Fiona) copy this file for the default pages with the search, profile pic, icons -->
 <head>
     <title>LiftBuddy</title>
     <meta name="LiftBuddy" content="My LiftBuddy App">
@@ -56,46 +56,12 @@
     <!------------------------------>
 
     <!-- Nav bar -->
-    <div class="container">
-        <nav id="navbarPlaceholder"></nav>
+    <!-- back button only -->
+    <div class="previous_page">
+        <button class="previousButton" onclick="history.back()"> 
+            <span class="material-symbols-outlined">arrow_back_ios</span> 
+        </button>
     </div>
-
-    <!-- Page title -->
-    <div class="container text-center" style="margin: auto; width: 90%;">
-        <div class="row align-items-center">
-            <div class="col">
-                <button class="previousButton" onclick="history.back()">
-                    <span class="material-symbols-outlined">arrow_back_ios</span>
-                </button>
-            </div>
-            <div class="col">
-                <h1 style="margin-bottom: 10px;">History</h1>
-            </div>
-            <div class="col"></div>
-        </div>
-    </div>
-
-    <!-- History cards: max 10 cards -->
-    <div class="card" style="max-width: 600px;">
-        <div class="row">
-            <div class="col-3">
-                <img src="../images/drink1.png" style="border-radius: 50%; width: 100px; height: 100px; margin-top: 40%;"
-                    class="img-fluid rounded-start" alt="buddy image">
-            </div>
-            <div class="col">
-                <div class="card-body">
-                    <h1 class="card-title">First, Last Name</h1>
-                    <p class="card-text">Job Title</p>
-                    <p class="card-text">Department</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="col-2">
-                <span class="material-symbols-outlined" style="font-size: 30pt;">info</span>
-            </div>
-        </div>
-    </div>
-
 
     <footer id="footerPlaceholder"></footer>
 
