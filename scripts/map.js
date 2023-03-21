@@ -1,4 +1,13 @@
-function showMap(currentUser, currentUserDepartmentPreferences, currentUserGenderPreferences, currentUserGender, currentUserDepartment, currentUserType) {
+function showMap(
+  currentUser,
+  currentUserDepartmentPreferences,
+  currentUserGenderPreferences,
+  currentUserGender,
+  currentUserDepartment,
+  currentUserType
+) 
+
+{
   // Defines basic mapbox data
   mapboxgl.accessToken =
     "pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ";
@@ -8,6 +17,101 @@ function showMap(currentUser, currentUserDepartmentPreferences, currentUserGende
     center: [-122.964274, 49.236082], // Starting position
     zoom: 8, // Starting zoom
   });
+
+  // (amy) listener function for the sending-requests
+  firebase
+    .firestore()
+    .collection("requests")
+    .where("requestedId", "==", firebase.auth().currentUser.uid)
+    .onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+        // add your code here to handle the carpooling request
+      });
+    });
+
+  const requestsRef = firebase.firestore().collection("requests");
+
+  // (amy) replace 'requestedUserId' with the actual ID of the user you're requesting a ride from
+  requestsRef
+    .add({
+      requesterId: firebase.auth().currentUser.uid,
+      requestedId: "requestedUserId",
+      status: "pending",
+    })
+    .then(() => {
+      console.log("Request sent successfully!");
+    })
+    .catch((error) => {
+      console.error("Error sending request:", error);
+    });
+
+  function handleBuddyUpClick() {
+    // Get user input
+    const destination = document.getElementById("destination").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+
+    // Add request to Firestore
+    const requestsRef = db.collection("requests");
+    requestsRef
+      .add({
+        requesterId: uid,
+        requestedId: buddyId,
+        status: "pending",
+        destination: destination,
+        date: date,
+        time: time,
+      })
+      .then(function (docRef) {
+        console.log("Document written with ID: ", docRef.id);
+        // Call function to show success message
+        showSuccessMessage();
+        // Add button disabled state
+        buddyUpButton.disabled = true;
+        // Add button text
+        buddyUpButton.innerText = "Request Sent";
+        // Add button class
+        buddyUpButton.classList.add("disabled");
+        // Add button tooltip
+        buddyUpButton.title = "Request already sent";
+        // Add button icon
+        buddyUpButton.innerHTML = '<i class="fas fa-paper-plane"></i>';
+
+        // Call function to show notification popup
+        showNotificationPopup(docRef.id, buddyId);
+
+        // Get a reference to the requested user's document in Firestore
+        const requestedUserDocRef = db.collection("users").doc(requestedUserId);
+
+        // Update the requested user's document with the alert field set to the current user's ID
+        requestedUserDocRef
+          .update({
+            alert: currentUser.uid,
+          })
+          .then(() => {
+            console.log("Alert field updated successfully!");
+          })
+          .catch((error) => {
+            console.error("Error updating alert field:", error);
+          });
+      })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
+  }
+
+  firebase
+    .firestore()
+    .collection("users")
+    .onSnapshot(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        if (doc.data().buddyParings === "changed") {
+          console.log("Accept");
+        }
+      });
+    });
+
 
   // Add user controls to map
   map.addControl(new mapboxgl.NavigationControl());
@@ -29,7 +133,7 @@ function showMap(currentUser, currentUserDepartmentPreferences, currentUserGende
           .then((allEvents) => {
             const features = []; // Defines an empty array for information to be added to
             allEvents.forEach((doc) => {
-              let ID = doc.id
+              let ID = doc.id;
               console.log(ID);
               lat = doc.data().lat;
               lng = doc.data().lng;
@@ -42,11 +146,24 @@ function showMap(currentUser, currentUserDepartmentPreferences, currentUserGende
               type = doc.data().type;
               genderPreference = doc.data().genderPreference;
               departmentPreference = doc.data().departmentPreference;
-              console.log(genderPreference, departmentPreference, gender, department)
-              console.log(currentUserGenderPreferences, currentUserDepartmentPreferences, currentUserGender, currentUserDepartment)
+              console.log(
+                genderPreference,
+                departmentPreference,
+                gender,
+                department
+              );
+              console.log(
+                currentUserGenderPreferences,
+                currentUserDepartmentPreferences,
+                currentUserGender,
+                currentUserDepartment
+              );
               // (corey) added a control structure to account for the current user's preferences and each user's preferences
               if (ID != currentUser.uid && currentUserType != type) {
-                if (currentUserGender == gender && currentUserDepartment == department) {
+                if (
+                  currentUserGender == gender &&
+                  currentUserDepartment == department
+                ) {
                   // Pushes information into the features array
                   features.push({
                     type: "Feature",
@@ -62,8 +179,14 @@ function showMap(currentUser, currentUserDepartmentPreferences, currentUserGende
                       coordinates: coordinates,
                     },
                   });
-                } else if (currentUserGender == gender && currentUserDepartment != department) {
-                  if (currentUserDepartmentPreferences == false && departmentPreference == false) {
+                } else if (
+                  currentUserGender == gender &&
+                  currentUserDepartment != department
+                ) {
+                  if (
+                    currentUserDepartmentPreferences == false &&
+                    departmentPreference == false
+                  ) {
                     // Pushes information into the features array
                     features.push({
                       type: "Feature",
@@ -80,8 +203,16 @@ function showMap(currentUser, currentUserDepartmentPreferences, currentUserGende
                       },
                     });
                   }
-                } else if (currentUserGender != gender && currentUserDepartment != department) {
-                  if (currentUserDepartmentPreferences == false && departmentPreference == false && currentUserGenderPreferences == false && genderPreference == false) {
+                } else if (
+                  currentUserGender != gender &&
+                  currentUserDepartment != department
+                ) {
+                  if (
+                    currentUserDepartmentPreferences == false &&
+                    departmentPreference == false &&
+                    currentUserGenderPreferences == false &&
+                    genderPreference == false
+                  ) {
                     // Pushes information into the features array
                     features.push({
                       type: "Feature",
@@ -98,8 +229,14 @@ function showMap(currentUser, currentUserDepartmentPreferences, currentUserGende
                       },
                     });
                   }
-                } else if (currentUserGender != gender && currentUserDepartment == department) {
-                  if (currentUserGenderPreferences == false && genderPreference == false) {
+                } else if (
+                  currentUserGender != gender &&
+                  currentUserDepartment == department
+                ) {
+                  if (
+                    currentUserGenderPreferences == false &&
+                    genderPreference == false
+                  ) {
                     // Pushes information into the features array
                     features.push({
                       type: "Feature",
@@ -162,7 +299,8 @@ function showMap(currentUser, currentUserDepartmentPreferences, currentUserGende
               map.getCanvas().style.cursor = "";
             });
           });
-      });
+      }
+    );
 
     // Add the image to the map style.
     map.loadImage(
@@ -251,43 +389,43 @@ function storeUserLocation(user) {
       lat,
       lng,
     });
-  })
+  });
 }
 
-
 $(document).ready(function () {
-
   // (Amy's code) Add the button onclick eent funciion here:
 
-
-
-
-
-
-
-
-
-
-
-
-
-  firebase.auth().onAuthStateChanged(user => {
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      db.collection("users").doc(user.uid).get().then(function(doc) {
-        if (doc.exists) {
-          var departmentPreferences = doc.data().departmentPreference;
-          var genderPreferences = doc.data().genderPreference;
-          var gender = doc.data().gender
-          var department = doc.data().department
-          var type = doc.data().type
-          console.log(genderPreferences, departmentPreferences, gender, department, type)
-          storeUserLocation(user)
-          showMap(user, departmentPreferences, genderPreferences, gender, department, type);
-        }
-      })
-      
+      db.collection("users")
+        .doc(user.uid)
+        .get()
+        .then(function (doc) {
+          if (doc.exists) {
+            var departmentPreferences = doc.data().departmentPreference;
+            var genderPreferences = doc.data().genderPreference;
+            var gender = doc.data().gender;
+            var department = doc.data().department;
+            var type = doc.data().type;
+            console.log(
+              genderPreferences,
+              departmentPreferences,
+              gender,
+              department,
+              type
+            );
+            storeUserLocation(user);
+            showMap(
+              user,
+              departmentPreferences,
+              genderPreferences,
+              gender,
+              department,
+              type
+            );
+          }
+        });
     }
-  })
-// Call the function to display the map with the user's location and event pins
-  
+  });
+  // Call the function to display the map with the user's location and event pins
 });
