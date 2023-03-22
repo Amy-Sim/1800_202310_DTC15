@@ -1,9 +1,20 @@
-//Save the buddy last pair up
+function buddyInfo() {
+    var database = firebase.database();
+    var userBuddy = database.ref('buddyPairing');
 
-function saveBuddyPairUp() {
-    last_pairup = [];
-    for (var i = 0; i < buddy_list.length; i++) {
-        last_pairup.push(buddy_list[i].id);
+    console.log("buddyInfo() called");
+    //get buddy name
+    if (userBuddy == null) {
+        console.log("buddyPairing is null");
     }
-
+    else {
+        userBuddy.on('value', function (snapshot) {
+            console.log(snapshot.val());
+            var buddyName = snapshot.val().buddyName;
+            console.log(buddyName);
+            $("#buddy-name").text(buddyName);
+        })
+    }
 }
+
+buddyInfo();
