@@ -1,97 +1,57 @@
-<!--(Amy) nav bar -->
-<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="container">
+<div class="sticky-top">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid" id="account_setting">
+            <div class="container text-center" id="main_icons">
                 <div class="row align-items-center">
-                    <div class="col" id="account_setting">
+                    <div class="col">
                         <a href="account_settings.html">
                             <span class="material-symbols-outlined" id="user_setting_icon">
                                 account_circle
                             </span>
                         </a>
                     </div>
+
                     <div class="col">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">
-                                (Amy) search icon, instead of "search"
-                                <span class="material-symbols-outlined">
-                                    search
-                                </span></button>
-                        </form>
+                        <a href="index.html">
+                            <span class="material-symbols-outlined" id="icons">
+                                home
+                            </span>
+                            <div id="homeIcon">Home</div>
+                        </a>
+
+                    </div>
+
+                    <div class="col">
+                        <a href="history.html">
+                            <span class="material-symbols-outlined" id="icons">
+                                history_edu
+                            </span>
+                            <div>History</div>
+                        </a>
+                    </div>
+
+                    <div class="col">
+                        <a href="favorites.html">
+                            <span class="material-symbols-outlined" id="icons">
+                                star
+                            </span>
+                            <div>Favorites</div>
+                        </a>
+                    </div>
+
+                    <div class="col">
+                        <a href="resources.html">
+                            <span class="material-symbols-outlined" id="icons">
+                                inventory_2
+                            </span>
+                            <div id="resourceIcon">Resources</div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav> -->
-<!-- (corey) commented out the old navbar, this one was having issues with the search bar staying close to the left side for some reason when moving to large screens -->
-
-
-<div class="sticky-top">
-    
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid" id="account_setting">
-            <a href="account_settings.html">
-                <span class="material-symbols-outlined" id="user_setting_icon">
-                    account_circle
-                </span>
-            </a>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">
-                    <span class="material-symbols-outlined">
-                        search
-                    </span>
-                </button>
-            </form>
-        </div>
     </nav>
-    
-    <!-- 4 icons -->
-    <!-- (Amy) When you click the icons for now, you will be directed to the index page. I will modify the 'href' after the other pages are done. -->
-    <div class="container text-center" id="main_icons">
-        <div class="row align-items-center">
-            <div class="col">
-                <a href="index.html">
-                    <span class="material-symbols-outlined" id="icons">
-                        home
-                    </span>
-                    <div id="homeIcon">Home</div>
-                </a>
-    
-            </div>
-    
-            <div class="col">
-                <a href="history.html">
-                    <span class="material-symbols-outlined" id="icons">
-                        history_edu
-                    </span>
-                    <div>History</div>
-                </a>
-            </div>
-    
-            <div class="col">
-                <a href="favorites.html">
-                    <span class="material-symbols-outlined" id="icons">
-                        star
-                    </span>
-                    <div>Favorites</div>
-                </a>
-            </div>
-    
-            <div class="col">
-                <a href="resources.html">
-                    <span class="material-symbols-outlined" id="icons">
-                        inventory_2
-                    </span>
-                    <div id="resourceIcon">Resources</div>
-                </a>
-            </div>
-        </div>
-    </div>
-    
+
     <!-- weather alert -->
     <div class="alert yellow" role="alert">
         <!-- <a href="https://www.theweathernetwork.com/ca" class="alert_a_tag"><b>Current Weather Conditions</b></a> -->
