@@ -1,12 +1,19 @@
+let page = [];
+let userID = localStorage.getItem("user");
+console.log(userID);
+
 
 function displayPairing() {
-    var userBuddy = firebase.database().ref("buddyPairing");
-    userBuddy.on('value', function (snapshot) {
+ 
+    db.collection(collection).get().then((snapshot) => {
         console.log(snapshot.val());
         var buddyName = snapshot.val().buddyName;
         console.log(buddyName);
         $("#buddy-name").text(buddyName);
+        $("#buddy-department").text();
+        $("#time-stamp").text();
     })
 }
 
-displayPairing();
+
+page.append(displayPairing());
