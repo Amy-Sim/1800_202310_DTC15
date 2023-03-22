@@ -18,7 +18,7 @@ function showMap(
     zoom: 8, // Starting zoom
   });
 
-  // (amy) listener function for the sending-requests
+  // listener function for the sending-requests
   firebase
     .firestore()
     .collection("requests")
@@ -26,13 +26,13 @@ function showMap(
     .onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         console.log(doc.data());
-        // add your code here to handle the carpooling request
+        
       });
     });
 
   const requestsRef = firebase.firestore().collection("requests");
 
-  // (amy) replace 'requestedUserId' with the actual ID of the user you're requesting a ride from
+  // replace 'requestedUserId' with the actual ID of the user you're requesting a ride from
   requestsRef
     .add({
       requesterId: firebase.auth().currentUser.uid,
