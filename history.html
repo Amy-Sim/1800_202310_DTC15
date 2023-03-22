@@ -75,64 +75,37 @@
         </div>
     </div>
 
-    <!-- History cards: max 10 cards -->
-    <div class="card active" style="max-width: 100%;" id="1">
-        <div class="row">
-            <div class="col-3">
-                <img src="../images/drink1.png" style="border-radius: 50%; width: 100px; height: 100px; margin-top: 40%;"
-                    class="img-fluid rounded-start" alt="buddy image">
-            </div>
-            <div class="col">
-                <div class="card-body">
-                    <h1 class="card-title">First, Last Name</h1>
-                    <p class="card-text">Job Title</p>
-                    <p class="card-text">Department</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <!-- History cards: max 5 cards -->
+    <template class="active" id="1">
+        <div class="card" style="max-width: 100%;" >
+            <div class="row">
+                <div class="col-3">
+                    <img src="../images/drink1.png" style="border-radius: 50%; width: 100%; height: auto;"
+                        class="img-fluid rounded-start" alt="buddy image">
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        
+                        <h1 class="card-title"><span id="buddy-name">Name</span></h1>
+                        <p class="card-text"><span id="buddy-title">Title</span></p>
+                        <p class="card-text"><span id="department">Department</span></p>
+                        <p class="card-text">Last matched <span id="time-stamp"></span></p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <span class="material-symbols-outlined" style="font-size: 30pt;">info</span>
                 </div>
             </div>
-            <div class="col-2">
-                <span class="material-symbols-outlined" style="font-size: 30pt;">info</span>
-            </div>
         </div>
-    </div>
-    <div class="card" style="max-width: 100%;" id="2">
-        <div class="row">
-            <div class="col-3">
-                <img src="../images/drink1.png" style="border-radius: 50%; width: 100px; height: 100px; margin-top: 40%;"
-                    class="img-fluid rounded-start" alt="buddy image">
-            </div>
-            <div class="col">
-                <div class="card-body">
-                    <h1 class="card-title">First, Last Name</h1>
-                    <p class="card-text">Job Title</p>
-                    <p class="card-text">Department</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="col-2">
-                <span class="material-symbols-outlined" style="font-size: 30pt;">info</span>
-            </div>
-        </div>
-    </div>
-    <div class="card" style="max-width: 100%;" id="3">
-        <div class="row">
-            <div class="col-3">
-                <img src="../images/drink1.png" style="border-radius: 50%; width: 100px; height: 100px; margin-top: 40%;"
-                    class="img-fluid rounded-start" alt="buddy image">
-            </div>
-            <div class="col">
-                <div class="card-body">
-                    <h1 class="card-title">First, Last Name</h1>
-                    <p class="card-text">Job Title</p>
-                    <p class="card-text">Department</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="col-2">
-                <span class="material-symbols-outlined" style="font-size: 30pt;">info</span>
-            </div>
-        </div>
-    </div>
+    </template>
+
+    
+
+
+
+
+
+
 
 
 
