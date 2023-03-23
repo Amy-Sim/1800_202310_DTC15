@@ -1,12 +1,11 @@
-//global variables
-let currentUser;
 
 $(document).ready(function () {
+
     firebase.auth().onAuthStateChanged(user => {
-        currentUser = db.collection("users").doc(user.uid);
+        let currentUser = db.collection("users").doc(user.uid);
         //console.log(curerntUser); // test to show if user id pops up
         let cardTemplate = document.getElementById("buddyCardTemplate");
-        let buddyPairing = document.getElementById("buddyPairing");
+        let buddyPairing = currentUser.ref("users/" + user.uid + "/buddyPairing");
         let newCard = cardTemplate.content.cloneNode(true);
 
         currentUser.get().then(function (document) {
