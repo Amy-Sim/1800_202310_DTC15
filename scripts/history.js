@@ -1,25 +1,37 @@
-// populate historical pairing data
-let page = [];
-let userID = localStorage.getItem("user");
-console.log(userID); // test to show if user id pops up
+//global variables
+let currentUser;
+
+$(document).ready(function () {
+    firebase.auth().onAuthStateChanged(user => {
+        currentUser = db.collection("users").doc(user.uid);
+        //console.log(curerntUser); // test to show if user id pops up
+        let cardTemplate = document.getElementById("buddyCardTemplate");
+        let buddyPairing = document.getElementById("buddyPairing");
+        let newCard = cardTemplate.content.cloneNode(true);
+
+        currentUser.get().then(function (document) {
+                if (document.exist) {
+                    if (buddyPairing == true) {
+                        var buddyName = document.data().name;
+                        var buddyDepartment = document.data().department;
+                        //console.log(buddyName);
+                        //console.log(buddyDepartment);
+                        $("#buddy-name").text(buddyName);
+                        $("#buddy-department").text(buddyDepartment);
+                        document.body.appendChild(newCard);
+    
+                    }
+                }
+            });
+    });
+});
 
 
-function displayPairingProfile() {
-    //retrieve document id from the url 
-    let params = new URL(window.location.href); // get url 
-    let ID = params.searchParams.get("docID"); // get id from url
 
-    db.collection("buddyPairing")
 
-    db.collection(collection).get().then((snapshot) => {
-        console.log(snapshot.val());
-        var buddyName = snapshot.val().buddyName;
-        console.log(buddyName);
-        $("#buddy-name").text();
-        $("#buddy-department").text();
-        $("#time-stamp").text();
-    })
-}
+
+
+
 
 
 
