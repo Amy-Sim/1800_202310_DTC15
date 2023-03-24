@@ -19,98 +19,98 @@ function showMap(
   });
 
   // listener function for the sending-requests
-  firebase
-    .firestore()
-    .collection("requests")
-    .where("requestedId", "==", firebase.auth().currentUser.uid)
-    .onSnapshot((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(doc.data());
+  // firebase
+  //   .firestore()
+  //   .collection("requests")
+  //   .where("requestedId", "==", firebase.auth().currentUser.uid)
+  //   .onSnapshot((querySnapshot) => {
+  //     querySnapshot.forEach((doc) => {
+  //       console.log(doc.data());
         
-      });
-    });
+  //     });
+  //   });
 
-  const requestsRef = firebase.firestore().collection("requests");
+  // const requestsRef = firebase.firestore().collection("requests");
 
-  // replace 'requestedUserId' with the actual ID of the user you're requesting a ride from
-  requestsRef
-    .add({
-      requesterId: firebase.auth().currentUser.uid,
-      requestedId: "requestedUserId",
-      status: "pending",
-    })
-    .then(() => {
-      console.log("Request sent successfully!");
-    })
-    .catch((error) => {
-      console.error("Error sending request:", error);
-    });
+  // // replace 'requestedUserId' with the actual ID of the user you're requesting a ride from
+  // requestsRef
+  //   .add({
+  //     requesterId: firebase.auth().currentUser.uid,
+  //     requestedId: "requestedUserId",
+  //     status: "pending",
+  //   })
+  //   .then(() => {
+  //     console.log("Request sent successfully!");
+  //   })
+  //   .catch((error) => {
+  //     console.error("Error sending request:", error);
+  //   });
 
-  function handleBuddyUpClick() {
-    // Get user input
-    const destination = document.getElementById("destination").value;
-    const date = document.getElementById("date").value;
-    const time = document.getElementById("time").value;
+  // function handleBuddyUpClick() {
+  //   // Get user input
+  //   const destination = document.getElementById("destination").value;
+  //   const date = document.getElementById("date").value;
+  //   const time = document.getElementById("time").value;
 
-    // Add request to Firestore
-    const requestsRef = db.collection("requests");
-    requestsRef
-      .add({
-        requesterId: uid,
-        requestedId: buddyId,
-        status: "pending",
-        destination: destination,
-        date: date,
-        time: time,
-      })
-      .then(function (docRef) {
-        console.log("Document written with ID: ", docRef.id);
-        // Call function to show success message
-        showSuccessMessage();
-        // Add button disabled state
-        buddyUpButton.disabled = true;
-        // Add button text
-        buddyUpButton.innerText = "Request Sent";
-        // Add button class
-        buddyUpButton.classList.add("disabled");
-        // Add button tooltip
-        buddyUpButton.title = "Request already sent";
-        // Add button icon
-        buddyUpButton.innerHTML = '<i class="fas fa-paper-plane"></i>';
+  //   // Add request to Firestore
+  //   const requestsRef = db.collection("requests");
+  //   requestsRef
+  //     .add({
+  //       requesterId: uid,
+  //       requestedId: buddyId,
+  //       status: "pending",
+  //       destination: destination,
+  //       date: date,
+  //       time: time,
+  //     })
+  //     .then(function (docRef) {
+  //       console.log("Document written with ID: ", docRef.id);
+  //       // Call function to show success message
+  //       showSuccessMessage();
+  //       // Add button disabled state
+  //       buddyUpButton.disabled = true;
+  //       // Add button text
+  //       buddyUpButton.innerText = "Request Sent";
+  //       // Add button class
+  //       buddyUpButton.classList.add("disabled");
+  //       // Add button tooltip
+  //       buddyUpButton.title = "Request already sent";
+  //       // Add button icon
+  //       buddyUpButton.innerHTML = '<i class="fas fa-paper-plane"></i>';
 
-        // Call function to show notification popup
-        showNotificationPopup(docRef.id, buddyId);
+  //       // Call function to show notification popup
+  //       showNotificationPopup(docRef.id, buddyId);
 
-        // Get a reference to the requested user's document in Firestore
-        const requestedUserDocRef = db.collection("users").doc(requestedUserId);
+  //       // Get a reference to the requested user's document in Firestore
+  //       const requestedUserDocRef = db.collection("users").doc(requestedUserId);
 
-        // Update the requested user's document with the alert field set to the current user's ID
-        requestedUserDocRef
-          .update({
-            alert: currentUser.uid,
-          })
-          .then(() => {
-            console.log("Alert field updated successfully!");
-          })
-          .catch((error) => {
-            console.error("Error updating alert field:", error);
-          });
-      })
-      .catch(function (error) {
-        console.error("Error adding document: ", error);
-      });
-  }
+  //       // Update the requested user's document with the alert field set to the current user's ID
+  //       requestedUserDocRef
+  //         .update({
+  //           alert: currentUser.uid,
+  //         })
+  //         .then(() => {
+  //           console.log("Alert field updated successfully!");
+  //         })
+  //         .catch((error) => {
+  //           console.error("Error updating alert field:", error);
+  //         });
+  //     })
+  //     .catch(function (error) {
+  //       console.error("Error adding document: ", error);
+  //     });
+  // }
 
-  firebase
-    .firestore()
-    .collection("users")
-    .onSnapshot(function (querySnapshot) {
-      querySnapshot.forEach(function (doc) {
-        if (doc.data().buddyParings === "changed") {
-          console.log("Accept");
-        }
-      });
-    });
+  // firebase
+  //   .firestore()
+  //   .collection("users")
+  //   .onSnapshot(function (querySnapshot) {
+  //     querySnapshot.forEach(function (doc) {
+  //       if (doc.data().buddyParings === "changed") {
+  //         console.log("Accept");
+  //       }
+  //     });
+  //   });
 
 
     
@@ -127,6 +127,16 @@ function showMap(
 
         // Add the image to the map style.
         map.addImage("eventpin", image); // Pin Icon
+
+        firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+            // User is signed in.
+            // Do something for the user here.
+            currentUserUID = user.uid;
+          } else {
+            // No user is signed in.
+          }
+        });
 
         // READING information from "events" collection in Firestore
         db.collection("users")
@@ -173,7 +183,7 @@ function showMap(
                                     <p>Gender: ${gender}</p> 
                                     <p>Department: ${department}</p> 
                                     <p>I am a: ${type}</p>
-                                    <button id="BuddyUp">Ask to BuddyUp</button>`,
+                                    <button id="buddyup-btn" data-user-id="${doc.id}">Ask to Buddyup</button>`,
                     },
                     geometry: {
                       type: "Point",
@@ -196,7 +206,7 @@ function showMap(
                                       <p>Gender: ${gender}</p> 
                                       <p>Department: ${department}</p> 
                                       <p>I am a: ${type}</p>
-                                      <button id="BuddyUp">Ask to BuddyUp</button>`,
+                                      <button id="buddyup-btn" data-user-id="${doc.id}">Ask to Buddyup</button>`,
                       },
                       geometry: {
                         type: "Point",
@@ -222,7 +232,7 @@ function showMap(
                                       <p>Gender: ${gender}</p> 
                                       <p>Department: ${department}</p> 
                                       <p>I am a: ${type}</p>
-                                      <button id="BuddyUp">Ask to BuddyUp</button>`,
+                                      <button id="buddyup-btn" data-user-id="${doc.id}">Ask to Buddyup</button>`,
                       },
                       geometry: {
                         type: "Point",
@@ -246,7 +256,7 @@ function showMap(
                                       <p>Gender: ${gender}</p> 
                                       <p>Department: ${department}</p> 
                                       <p>I am a: ${type}</p>
-                                      <button id="BuddyUp">Ask to BuddyUp</button>`,
+                                      <button id="buddyup-btn" data-user-id="${doc.id}">Ask to Buddyup</button>`,
                       },
                       geometry: {
                         type: "Point",
@@ -286,10 +296,32 @@ function showMap(
               while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                 coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
               }
-              new mapboxgl.Popup()
+              const popup = new mapboxgl.Popup()
                 .setLngLat(coordinates)
                 .setHTML(description)
                 .addTo(map);
+
+              // Add event listener to the "Ask to Buddyup" button
+              const buddyupBtn = popup._content.querySelector("#buddyup-btn");
+              buddyupBtn.addEventListener("click", async (event) => {
+                // Retrieve the user's information
+                const userId = event.target.getAttribute("data-user-id");
+                const user = await db.collection("users").doc(userId).get();
+
+                // Send a buddyup request to the user
+                const request = {
+                  senderId: currentUserUID,
+                  senderName: "Your name", // Replace with your name
+                  recipientId: userId,
+                  recipientName: user.data().name, // Replace with the user's name
+                  message: "Would you like to buddy up?",
+                  status: "pending",
+                };
+                await db.collection("requests").add(request);
+
+                // Send an alert to the user
+                alert(`Buddyup request sent to ${user.data().name}`);
+              });
             });
             // Change the cursor to a pointer when the mouse is over the places layer.
             map.on("mouseenter", "places", () => {
@@ -393,6 +425,95 @@ function storeUserLocation(user) {
   });
 }
 
+function listenForBuddyUpRequest() {
+  // Get the requests collection
+  const requestsRef = db.collection("requests");
+
+  // Listen for changes in the requests collection
+  requestsRef.onSnapshot((snapshot) => {
+    // Loop through the documents in the collection
+    snapshot.forEach((doc) => {
+      // Get the recipientId from the document data
+      var currentRequest = doc.data();
+      var requestRecipientId = currentRequest.recipientId;
+      var requestStatus = currentRequest.status;
+      firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+          var currentUserID = user.uid;
+          // Check if the recipientId matches with the input recipientId
+          if (
+            requestRecipientId === currentUserID &&
+            requestStatus === "pending"
+          ) {
+            // Show an alert with options to accept or decline the BuddyUp request
+            if (
+              confirm(
+                "You have a BuddyUp request. Do you want to accept or decline?"
+              )
+            ) {
+              // User clicked "OK" or "Accept"
+              // Handle the accept logic here
+              doc.ref
+                .update({
+                  status: "success",
+                })
+                .then(() => {
+                  console.log("BuddyUp request accepted");
+                });
+            } else {
+              // User clicked "Cancel" or "Decline"
+              // Handle the decline logic here
+              doc.ref
+                .update({
+                  status: "failure",
+                })
+                .then(() => {
+                  console.log("BuddyUp request declined");
+                });
+            }
+          }
+        } else {
+          // No user is signed in.
+        }
+      });
+    });
+  });
+}
+
+
+function checkRequests() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // User is signed in.
+      // Do something for the user here.
+      currentUserUid = user.uid;
+      console.log(currentUserUid);
+      const requestsRef = db.collection("requests");
+      requestsRef
+        .where("senderId", "==", currentUserUid)
+        .where("status", "in", ["success", "failure"]) // Listen for changes in "success" or "failure" statuses
+        .onSnapshot((querySnapshot) => {
+          // Use onSnapshot() to listen for changes in the collection
+          querySnapshot.forEach((doc) => {
+            if (doc.data().status === "success") {
+              const phoneNumber = doc.data().phoneNumber;
+              alert(
+                `Congrats, you are paired! The phone number of the person will be emailed to you.`
+              );
+              doc.ref.delete();
+            } else if (doc.data().status === "failure") {
+              alert(`Sorry, your request was declined.`);
+              doc.ref.delete();
+            }
+          });
+        });
+    } else {
+      // No user is signed in.
+    }
+  });
+}
+
+
 $(document).ready(function () {
   // (Amy's code) Add the button onclick eent funciion here:
 
@@ -424,6 +545,8 @@ $(document).ready(function () {
               department,
               type
             );
+            listenForBuddyUpRequest()
+            checkRequests()
           }
         });
     }
