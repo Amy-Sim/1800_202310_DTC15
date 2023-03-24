@@ -14,10 +14,14 @@ function populateUserInfo() {
                     var userName = userDoc.data().name;
                     var userDepartment = userDoc.data().department;
                     var userGender = userDoc.data().gender;
+                    var phoneNumber = userDoc.data().phoneNumber;
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
                         document.getElementById("nameInput").value = userName;
+                    }
+                    if (phoneNumber != null) {
+                        document.getElementById("phoneInput").value = phoneNumber;
                     }
 
                     if (userDoc.data().department == "Computer Systems Technology") {
@@ -64,6 +68,7 @@ function saveUserInfo() {
     
     //a) get user entered values
     var userName = document.getElementById("nameInput").value;
+    var phoneNumber = document.getElementById("phoneInput").value;
     // var userDepartment = document.getElementById("departmentInput").value;
     // get user type
     if (document.getElementById("driverInput").checked == true) {
@@ -93,7 +98,8 @@ function saveUserInfo() {
         name: userName,
         department: userDepartment,
         gender: userGender,
-        type: userType
+        type: userType,
+        phoneNumber : phoneNumber
     })
     .then(() => {
         console.log("Document successfully updated!");

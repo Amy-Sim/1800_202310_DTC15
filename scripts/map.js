@@ -498,7 +498,7 @@ function checkRequests() {
             if (doc.data().status === "success") {
               const phoneNumber = doc.data().phoneNumber;
               alert(
-                `Congrats, you are paired! The phone number of the person will be emailed to you.`
+                `Congrats, you are paired! The phone number of the person your paired with is: ${phoneNumber}.`
               );
               doc.ref.delete();
             } else if (doc.data().status === "failure") {
