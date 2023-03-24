@@ -163,36 +163,36 @@ new novaAlert({
 
 
 
-  function show_darkmode() {
-    new novaAlert({
-      title: "BuddyUp request is sent to the user",
-      icon: "OK",
-      dismissButton: false,
-      darkMode: true,
-    });
-  }
+//   function show_darkmode() {
+//     new novaAlert({
+//       title: "BuddyUp request is sent to the user",
+//       icon: "OK",
+//       dismissButton: false,
+//       darkMode: true,
+//     });
+//   }
 
-function show_alert() {
-  new novaAlert({
-    title: "Would you accept BuddyUp request?",
-    icon: "",
-    showCancelButton: true,
-    dismissButton: false,
-    ConfirmButtonText: "Accept",
-    CancelButtonText: "Decline",
-  }).then(function (e) {
-    if (e) {
-      new novaAlert({
-        title: "Acceptance message is sent to your Buddy",
-        dismissButton: false,
-      });
-    } else {
-      new novaAlert({
-        title: "Decline message is sent to your Buddy",
-        dismissButton: false,
-      });
-    }
-  });
-}
+// function show_alert() {
+//   new novaAlert({
+//     title: "Would you accept BuddyUp request?",
+//     icon: "",
+//     showCancelButton: true,
+//     dismissButton: false,
+//     ConfirmButtonText: "Accept",
+//     CancelButtonText: "Decline",
+//   }).then(function (e) {
+//     if (e) {
+//       new novaAlert({
+//         title: "Acceptance message is sent to your Buddy",
+//         dismissButton: false,
+//       });
+//     } else {
+//       new novaAlert({
+//         title: "Decline message is sent to your Buddy",
+//         dismissButton: false,
+//       });
+//     }
+//   });
+// }
 
 
