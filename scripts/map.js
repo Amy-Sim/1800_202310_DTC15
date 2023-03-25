@@ -500,7 +500,7 @@ function checkRequests() {
               alert(
                 `Congrats, you are paired! The phone number of the person your paired with is: ${phoneNumber}.`
               );
-              doc.ref.delete();
+              // doc.ref.delete();
             } else if (doc.data().status === "failure") {
               alert(`Sorry, your request was declined.`);
               doc.ref.delete();
