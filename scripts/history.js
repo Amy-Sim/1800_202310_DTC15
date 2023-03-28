@@ -1,3 +1,17 @@
+function displayHistory(buddyID) {
+    db.collection("users").doc(buddyID).get()
+        .then((doc) => {
+            let name = doc.data().name;
+            //console.log(name);
+            let department = doc.data().department;
+            //console.log(department);
+            let buddycard = doc.getElementById("buddyCardTemplate").content.cloneNode(true);
+            buddycard.$(".buddy-name").innerHTML = name;
+            buddycard.$(".buddy-department").innerHTML = department;
+            document.getElementById("buddy-card-goes-here").appendChild(buddycard);
+    });
+}
+
 $(document).ready(function () {
        firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -12,27 +26,23 @@ $(document).ready(function () {
         .get()
         .then((allEvents) => {
             const history = [];
-            let buddycard = document.getElementById("buddyCardTemplate").content.cloneNode(true);
             allEvents.forEach((doc) => {
                 let recipient = doc.data().recipientId;
                 let sender = doc.data().senderId;
                 console.log(recipient, sender);
                 if (sender == currentUserUID) {
                     history.push(recipient)                    
-                    buddycard.$(".buddy-name").innerHTML = recipient.name;
-                    buddycard.$(".buddy-department").innerHTML = recipient.department;
-                    document.getElementById("buddy-card-goes-here").appendChild(buddycard);
-                }
+                };
                 if (recipient == currentUserUID) {
                     history.push(sender)
-                    buddycard.$(".buddy-name").innerHTML = sender.name;
-                    buddycard.$(".buddy-department").innerHTML = sender.department;
-                    document.getElementById("buddy-card-goes-here").appendChild(buddycard);
-                }
+                };
                 console.log(history);
+                let pastbuddy = history[0];
+                displayHistory(pastbuddy);
+  
             });
         });
-});
+    });
 
 
     // firebase.auth().onAuthStateChanged(user => {
