@@ -2,6 +2,10 @@
     font-family: 'Manrope', sans-serif;
 }
 
+.navbar{
+    background-color: #F5F5F5;
+}
+
 /* Back Button Style */
 .previousButton{
     text-decoration: none;
