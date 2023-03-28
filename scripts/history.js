@@ -1,8 +1,8 @@
 function displayHistory(buddyID) {
     db.collection("users").doc(buddyID).get()
         .then((doc) => {
-            var buddy_name = doc.data().name;
-            var buddy_department = doc.data().department;
+            var buddy_name = doc.data()?.name;
+            var buddy_department = doc.data()?.department;
             console.log(buddy_name, buddy_department);
 
             //clone the new buddy card
