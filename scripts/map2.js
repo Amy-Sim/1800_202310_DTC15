@@ -303,6 +303,14 @@ function checkRequests() {
               alert(
                 `Congrats, you are paired! The phone number of the person will be emailed to you.`
               );
+              db.collection("history").add({
+                senderID: doc.data().senderId,
+                senderName: doc.data().senderName, // Replace with your name
+                recipientID: doc.data().recipientId,
+                recipientName: doc.data().recipientName, // Replace with the user's name
+                timestamp: doc.data().timestamp,
+                status: 'Accepted'
+              })
               doc.ref.delete();
             } else if (doc.data().status === "failure") {
               alert(`Sorry, your request was declined.`);
