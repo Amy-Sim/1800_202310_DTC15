@@ -1,13 +1,12 @@
 function displayHistory(buddyID) {
     db.collection("users").doc(buddyID).get()
         .then((doc) => {
-            let name = doc.data().name;
-            //console.log(name);
-            let department = doc.data().department;
-            //console.log(department);
-            let buddycard = doc.getElementById("buddyCardTemplate").content.cloneNode(true);
-            buddycard.$(".buddy-name").innerHTML = name;
-            buddycard.$(".buddy-department").innerHTML = department;
+            let buddy_name = doc.data().name;
+            let buddy_department = doc.data().department;
+            //console.log(name,department);
+            let buddycard = doc.getElementById;("buddyCardTemplate").content.cloneNode(true);
+            buddycard.$(".buddy-name").innerHTML = buddy_name;
+            buddycard.$(".buddy-department").innerHTML = buddy_department;
             document.getElementById("buddy-card-goes-here").appendChild(buddycard);
     });
 }
