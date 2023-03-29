@@ -220,6 +220,7 @@ function showMap(
                   recipientId: userId,
                   recipientName: user.data().name, // Replace with the user's name
                   message: "Would you like to buddy up?",
+                  // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                   status: "pending",
                 };
                 await db.collection("requests").add(request);
@@ -411,7 +412,7 @@ function checkRequests() {
                   senderName: doc.data().senderName,
                   recipientId: doc.data().recipientId,
                   recipientName: doc.data().recipientName,
-                  timestamp: doc.data().timestamp,
+                  // timestamp: doc.data().timestamp,
                   status: 'Accepted'
               })
               doc.ref.delete();
@@ -423,7 +424,7 @@ function checkRequests() {
                 senderName: doc.data().senderName,
                 recipientId: doc.data().recipientId,
                 recipientName: doc.data().recipientName,
-                timestamp: doc.data().timestamp,
+                // timestamp: doc.data().timestamp,
                 status: 'Accepted'
             })
               doc.ref.delete();
@@ -438,7 +439,7 @@ function checkRequests() {
 
 
 $(document).ready(function () {
-  // (Amy's code) Add the button onclick eent funciion here:
+  // (Amy's code) Add the button onclick event funciion here:
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
