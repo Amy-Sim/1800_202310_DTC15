@@ -58,20 +58,49 @@
 
     <!-- Nav bar -->
     <div class="container">
-        <!-- <nav id="navbarPlaceholder"></nav> -->
-        <button class="previousButton" onclick="history.back()">
-            <span class="material-symbols-rounded">
-                arrow_back_ios_new
-            </span>
-        </button>
-        <h1>Weather Alerts</h1>
-        <h3>Location: <span id="location"> ... </span></h3>
-        <h3>Temperature: <span id="temp"> ... </span></h3>
-        <h3>Feels like: <span id="feelsLike"> ... </span></h3>
-        <h3>Description: <span id="description"> ... </span></h3>
-        <h3>Humidity: <span id="humidity"> ... </span></h3>
+        <nav id="navbarPlaceholder"></nav>
     </div>
-    
+
+    <!-- Page title -->
+    <div class="container text-center" style="margin: auto; width: 90%;">
+        <div class="row align-items-center">
+            <div class="col">
+                <button class="previousButton" onclick="history.back()">
+                    <span class="material-symbols-outlined">
+                        arrow_back_ios_new
+                    </span>
+                </button>
+            </div>
+            <div class="col-6">
+                <h1 style="margin-bottom: 10px; padding: none">
+                    <bold>Current Weather</bold>
+                </h1>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+
+    <div class="container" id="weatherInfo">
+        <br><br>
+        <h3 style="font-weight: bold;">Location: <span id="location" style="font-weight: normal;"> ... </span></h3>
+        <br>
+        <h3 style="font-weight: bold;">Temperature: <span id="temp" style="font-weight: normal;"> ... </span></h3>
+        <br>
+        <h3 style="font-weight: bold;">Feels like: <span id="feelsLike" style="font-weight: normal;"> ... </span></h3>
+        <br>
+        <h3 style="font-weight: bold;">Description: <span id="description" style="font-weight: normal;"> ... </span></h3>
+        <br>
+        <h3 style="font-weight: bold;">Humidity: <span id="humidity" style="font-weight: normal;"> ... </span></h3>
+    </div>
+
+
+    <!-- <h3>Location: <span id="location"> ... </span></h3>
+    <h3>Temperature: <span id="temp"> ... </span></h3>
+    <h3>Feels like: <span id="feelsLike"> ... </span></h3>
+    <h3>Description: <span id="description"> ... </span></h3>
+    <h3>Humidity: <span id="humidity"> ... </span></h3> -->
+
+
 
 
 
