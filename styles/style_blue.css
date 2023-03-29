@@ -1,21 +1,25 @@
 
 div.background {
-    background: url(./images/connections_bg.jpeg);
-    background-size: cover;
+    background-image: url(../images/connections_bg.jpeg);
+    background-color: #0B2447;
+    height: auto;
+    background-attachment: fixed;
     background-repeat: no-repeat;
-    background-position: center;
-    padding: 10% 10%;
-    border: 1px solid black;
+    background-position: center center;
 }
 
 div.transbox {
-    margin: 20px;
     background-color: #ffffff;
-    border: 1px solid white;
-    opacity: 0.9;
+    opacity: 0.8; 
+    padding: 60% 5%;
+    margin-top: -10%
 }
 
 div.transbox p {
-    margin: 0%;
+    margin: 5%;
     color: #000000;
+}
+
+p{
+    font-size: smaller;
 }
