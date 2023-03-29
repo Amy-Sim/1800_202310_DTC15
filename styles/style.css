@@ -24,10 +24,12 @@ body{
 .previousButton{
     text-decoration: none;
     border-style: none;
-    background-color: white;
+    background-color: transparent;
     padding: 0px 0px 0px 0px;
     float: left;
 }
+
+
 
 
 /* .alert_a_tag {
