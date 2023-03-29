@@ -72,14 +72,14 @@
                 </button>
             </div>
             <div class="col">
-                <h1 style="margin-bottom: 10px;">History</h1>
+                <h1 style="margin-bottom: 10px;"><bold>History</bold></h1>
             </div>
             <div class="col"></div>
         </div>
     </div>
 
     <!-- History cards: Not for display -->
-    <div class="container">
+    <div class="container text-center">
         <h5>Show All User Buddy History </h5>
         <div id="buddy-card-goes-here">
             <div id="historyCardGroup" class=" row row-cols-auto"></div>
@@ -89,21 +89,18 @@
     <template id="historyCardTemplate">
         <div class="card" style="max-width: 100%;" >
             <div class="row">
-                <div class="col-3">
+                <div class="col-3" class="position-absolute top-50 start-0 translate-middle-y"">
                     <img src="../images/drink1.png" style="border-radius: 50%; width: 100%; height: auto;"
                         class="img-fluid rounded-start" alt="buddy image">
                 </div>
                 <div class="col">
-                    <div class="card-body">
+                    <div class="card-body align-baseline>
                         <h1 class="card-title"><span id="buddy-name">Name</span></h1>
                         <!-- <p class="card-text"><span id="buddy-title">Title</span></p> -->
                         <p class="card-text"><span id="buddy-department">Department</span></p>
                         <p class="card-text"><span id="buddy-status">Success</span></p>
                         <p class="card-text">Last matched <span id="time-stamp"></span></p>
                     </div>
-                </div>
-                <div class="col-2">
-                    <a class="material-symbols-outlined" style="font-size: 30pt;">info</a>
                 </div>
             </div>
         </div>
