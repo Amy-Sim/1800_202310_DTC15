@@ -170,6 +170,10 @@ a{
     margin-top: 20px
 }
 
+.blue_colour:hover {
+    background-color: #67acff;
+}
+
 /* popup */
 /* * {
     box-sizing: border-box;
