@@ -1,8 +1,8 @@
 function createHistoryCard(){
-    firebase,auth().onAuthStateChanged(function(user){
+    firebase.auth().onAuthStateChanged(function(user){
         if (user){
             const historyCollection = db.collection('history');
-            const historyCardGroup = doc.$('#historCardGroup');
+            const historyCardGroup = document.querySelector('#historyCardGroup');
     
             // Clear the existing history cards
             historyCardGroup.innerHTML = '';
@@ -19,21 +19,23 @@ function createHistoryCard(){
                 //Check if the senderID is equal to user.uid
                 if (data.senderID === user.id){
                     //Get the tenplate for the history card
-                    const historyCardTemplate = doc.$('#historyCardGroup');
+                    const historyCardTemplate = document.querySelector('#historyCardGroup');
 
                     //Clone the history card template
                     const historyCard = historyCardTemplate.content.cloneNode(true);
 
                     //Populate the fields of the history card with data from FireStore
-                    historyCard.$('.buddy-name').textContent = data.recipientName;
-                    historyCard.$('.buddy-department').textContent = data.recipientDepartment;
-                    historyCard.$('.buddy-status').textContent = data.status;
-                    historyCard.$('.time-stamp').textContent = data.date;
+                    historyCard.querySelector('.buddy-name').textContent = data.recipientName;
+                    historyCard.querySelector('.buddy-department').textContent = data.recipientDepartment;
+                    historyCard.querySelector('.buddy-status').textContent = data.status;
+                    historyCard.querySelector('.time-stamp').textContent = data.date;
                 }});
             });
         }
     });
 }
+
+createHistoryCard();
 
 
 
