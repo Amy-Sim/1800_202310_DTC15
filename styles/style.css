@@ -196,3 +196,10 @@ body {
     color: #000000;
     padding: 20px;
 } */
+
+@media screen and (min-width: 400px) {
+    #mainButtonImg img {
+        width: 380px;
+    }
+}
+
