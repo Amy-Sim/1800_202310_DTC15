@@ -47,6 +47,7 @@
     <!-- Link to styles of your own -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/style_blue.css">
 
 </head>
 
@@ -55,20 +56,23 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
-    <!-- our own navbar goes here -->
-    <div class="container">
-        <nav id="navbarPlaceholder"></nav>
-            <!-- the body of your page goes here -->
-            <!-- stuff -->
-
-        <div class="container">
-            <h1>Let's Login!</h1>
+    <div class="background">
+        <div class="transbox">
+            <!-- our own navbar goes here -->
+            <div class="container">
+                <!-- <nav id="navbarPlaceholder"></nav> -->
+                    <!-- the body of your page goes here -->
+                    <!-- stuff -->
+                <div class="container text-center" style="padding-top: 40%;">
+                    <h1>Let's Login!</h1>
+                    <br>
+                </div>
+                <div id="firebaseui-auth-container"></div>
+                <div id="loader">Loading...</div>
+                <!-- our own footer goes here-->
+                <nav id="footerPlaceholder"></nav>
+            </div>
         </div>
-
-        <div id="firebaseui-auth-container"></div>
-        <div id="loader">Loading...</div>
-        <!-- our own footer goes here-->
-        <nav id="footerPlaceholder"></nav>
     </div>
         
       <!---------------------------------------------->
