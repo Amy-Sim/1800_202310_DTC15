@@ -27,9 +27,9 @@ function createHistoryCard(){
 
                     //Populate the fields of the history card with data from FireStore
                     historyCard.querySelector('#buddy-name').textContent = data.recipientName;
-                    // historyCard.querySelector('.buddy-department').textContent = data.recipientDepartment;
+                    //historyCard.querySelector('.buddy-department').textContent = data.recipientDepartment;
                     historyCard.querySelector('#buddy-status').textContent = data.status;
-                    // historyCard.querySelector('.time-stamp').textContent = data.date;
+                    //historyCard.querySelector('.time-stamp').textContent = data.date;
 
                     //Add the history card to the history card group
                     historyCardGroup.appendChild(historyCard);
@@ -43,13 +43,13 @@ function createHistoryCard(){
                     const historyCard = historyCardTemplate.content.cloneNode(true);
 
                     //Populate the fields of the history card with data from FireStore
-                    historyCard.querySelector('#buddy-name').textContent = data.senderName;
-                    // historyCard.querySelector('.buddy-department').textContent = data.senderDepartment;
+                    sender_name = historyCard.querySelector('#buddy-name').textContent = data.senderName;
+                    //historyCard.querySelector('.buddy-department').textContent = data.senderDepartment;
                     historyCard.querySelector('#buddy-status').textContent = data.status;
-                    // historyCard.querySelector('.time-stamp').textContent = data.date;
+                    //historyCard.querySelector('.time-stamp').textContent = data.date;
 
                     //Add the history card to the history card group
-                    historyCardGroup.appendChild(historyCard);
+                   
                 }
                 });
             });
