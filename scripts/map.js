@@ -4,7 +4,8 @@ function showMap(
   currentUserGenderPreferences,
   currentUserGender,
   currentUserDepartment,
-  currentUserType
+  currentUserType,
+  currentUserName
 ) 
 
 {
@@ -215,7 +216,7 @@ function showMap(
                 // Send a buddyup request to the user
                 const request = {
                   senderId: currentUserUID,
-                  senderName: "Your name", // Replace with your name
+                  senderName: currentUserName, // Replace with your name
                   recipientId: userId,
                   recipientName: user.data().name, // Replace with the user's name
                   message: "Would you like to buddy up?",
@@ -339,6 +340,7 @@ function listenForBuddyUpRequest() {
     snapshot.forEach((doc) => {
       // Get the recipientId from the document data
       var currentRequest = doc.data();
+      var requestSenderName = currentRequest.senderName;
       var requestRecipientId = currentRequest.recipientId;
       var requestStatus = currentRequest.status;
       firebase.auth().onAuthStateChanged(function (user) {
@@ -352,7 +354,7 @@ function listenForBuddyUpRequest() {
             // Show an alert with options to accept or decline the BuddyUp request
             if (
               confirm(
-                "You have a BuddyUp request. Do you want to accept or decline?"
+                `You have a BuddyUp request from ${requestSenderName}. Do you want to accept or decline?`
               )
             ) {
               // User clicked "OK" or "Accept"
@@ -431,6 +433,7 @@ $(document).ready(function () {
         .get()
         .then(function (doc) {
           if (doc.exists) {
+            var name = doc.data().name;
             var departmentPreferences = doc.data().departmentPreference;
             var genderPreferences = doc.data().genderPreference;
             var gender = doc.data().gender;
@@ -450,7 +453,8 @@ $(document).ready(function () {
               genderPreferences,
               gender,
               department,
-              type
+              type,
+              name
             );
             listenForBuddyUpRequest()
             checkRequests()
