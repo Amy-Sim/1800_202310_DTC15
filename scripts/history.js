@@ -15,9 +15,10 @@ function createHistoryCard(){
                 const data = doc.data();
                 console.log("senderId: " + data.senderId);
                 console.log("recipientId: " + data.recipientId);
+                console.log("currentUser: " + user.uid);
 
                 //Check if the senderID is equal to user.uid
-                if (data.senderID === user.id){
+                if (user.uid == data.senderId) {
                     //Get the tenplate for the history card
                     const historyCardTemplate = document.querySelector('#historyCardTemplate');
 
@@ -32,7 +33,25 @@ function createHistoryCard(){
 
                     //Add the history card to the history card group
                     historyCardGroup.appendChild(historyCard);
-                }});
+                }
+                //Check if the recipientID is equal to user.uid
+                else if (user.uid == data.recipientId) {
+                    //Get the tenplate for the history card
+                    const historyCardTemplate = document.querySelector('#historyCardTemplate');
+
+                    //Clone the history card template
+                    const historyCard = historyCardTemplate.content.cloneNode(true);
+
+                    //Populate the fields of the history card with data from FireStore
+                    historyCard.querySelector('#buddy-name').textContent = data.senderName;
+                    // historyCard.querySelector('.buddy-department').textContent = data.senderDepartment;
+                    historyCard.querySelector('#buddy-status').textContent = data.status;
+                    // historyCard.querySelector('.time-stamp').textContent = data.date;
+
+                    //Add the history card to the history card group
+                    historyCardGroup.appendChild(historyCard);
+                }
+                });
             });
         }
     });
