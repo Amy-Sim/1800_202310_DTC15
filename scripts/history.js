@@ -1,53 +1,97 @@
-function displayHistory(buddyID) {
-    db.collection("users").doc(buddyID).get()
-        .then((doc) => {
-            var buddy_name = doc.data().name;
-            var buddy_department = doc.data().department;
-            console.log(buddy_name, buddy_department);
+function createHistoryCard(){
+    firebase,auth().onAuthStateChanged(function(user){
+        if (user){
+            const historyCollection = db.collection('history');
+            const historyCardGroup = doc.$('#historCardGroup');
+    
+            // Clear the existing history cards
+            historyCardGroup.innerHTML = '';
 
-            //clone the new buddy card
-            let buddycard = doc.getElementById;("buddyCardTemplate").content?.cloneNode(true);
+            //Query Firestore for the history collection
+            historyCollection.get().then((querySnapshot) => {           
+            //loop through the documents in the history collection 
+            querySnapshot.forEach((doc) => {
+                //Get data for the current document
+                const data = doc.data();
+                console.log("senderId: " + data.senderId);
+                console.log("recipientId: " + data.recipientId);
 
-            //populate with name and department    
-            buddycard.$(".buddy-name").innerHTML = buddy_name;
-            buddycard.$(".buddy-department").innerHTML = buddy_department;
-            
-            // add the new buddy card to the page
-            doc.getElementById("buddy-card-goes-here").appendChild(buddycard);
+                //Check if the senderID is equal to user.uid
+                if (data.senderID === user.id){
+                    //Get the tenplate for the history card
+                    const historyCardTemplate = doc.$('#historyCardGroup');
+
+                    //Clone the history card template
+                    const historyCard = historyCardTemplate.content.cloneNode(true);
+
+                    //Populate the fields of the history card with data from FireStore
+                    historyCard.$('.buddy-name').textContent = data.recipientName;
+                    historyCard.$('.buddy-department').textContent = data.recipientDepartment;
+                    historyCard.$('.buddy-status').textContent = data.status;
+                    historyCard.$('.time-stamp').textContent = data.date;
+                }});
+            });
+        }
     });
 }
 
-$(document).ready(function () {
-       firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            // User is signed in.
-            // Do something for the user here.
-            currentUserUID = user.uid;
-        } else {
-            // No user is signed in.
-        }
-    });
-    db.collection("requests")
-        .get()
-        .then((allEvents) => {
-            const history = [];
-            allEvents.forEach((doc) => {
-                let recipient = doc.data().recipientId;
-                let sender = doc.data().senderId;
-                console.log(recipient, sender);
-                if (sender == currentUserUID) {
-                    history.push(recipient)                    
-                };
-                if (recipient == currentUserUID) {
-                    history.push(sender)
-                };
-                console.log(history);
-                let pastbuddy = history[0];
-                displayHistory(pastbuddy);
+
+
+
+
+
+
+
+// function displayHistory(buddyID) {
+//     db.collection("users").doc(buddyID).get()
+//         .then((doc) => {
+//             var buddy_name = doc.data().name;
+//             var buddy_department = doc.data().department;
+//             console.log(buddy_name, buddy_department);
+
+//             //clone the new buddy card
+//             let buddycard = doc.getElementById;("buddyCardTemplate").content?.cloneNode(true);
+
+//             //populate with name and department    
+//             buddycard.$(".buddy-name").innerHTML = buddy_name;
+//             buddycard.$(".buddy-department").innerHTML = buddy_department;
+            
+//             // add the new buddy card to the page
+//             doc.getElementById("buddy-card-goes-here").appendChild(buddycard);
+//     });
+// }
+
+// $(document).ready(function () {
+//     firebase.auth().onAuthStateChanged(function (user) {
+//         if (user) {
+//             // User is signed in.
+//             // Do something for the user here.
+//             currentUserUID = user.uid;
+//         } else {
+//             // No user is signed in.
+//         }
+//     });
+//     db.collection("requests")
+//         .get()
+//         .then((allEvents) => {
+//             const history = [];
+//             allEvents.forEach((doc) => {
+//                 let recipient = doc.data().recipientId;
+//                 let sender = doc.data().senderId;
+//                 console.log(recipient, sender);
+//                 if (sender == currentUserUID) {
+//                     history.push(recipient)                    
+//                 };
+//                 if (recipient == currentUserUID) {
+//                     history.push(sender)
+//                 };
+//                 console.log(history);
+//                 let pastbuddy = history[0];
+//                 displayHistory(pastbuddy);
   
-            });
-        });
-    });
+//             });
+//         });
+//     });
 
 
     // firebase.auth().onAuthStateChanged(user => {

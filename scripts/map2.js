@@ -112,14 +112,16 @@ function showMap() {
                 // Retrieve the user's information
                 const userId = event.target.getAttribute("data-user-id");
                 const user = await db.collection("users").doc(userId).get();
+                const currentUser = await db.collection("users").doc(currentUserUID).get();
 
                 // Send a buddyup request to the user
                 const request = {
                   senderId: currentUserUID,
-                  senderName: "Your name", // Replace with your name
+                  senderName: currentUser.data().name, // Replace with your name
                   recipientId: userId,
                   recipientName: user.data().name, // Replace with the user's name
                   message: "Would you like to buddy up?",
+                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                   status: "pending",
                 };
                 await db.collection("requests").add(request);
@@ -304,9 +306,9 @@ function checkRequests() {
                 `Congrats, you are paired! The phone number of the person will be emailed to you.`
               );
               db.collection("history").add({
-                senderID: doc.data().senderId,
+                senderId: doc.data().senderId,
                 senderName: doc.data().senderName, // Replace with your name
-                recipientID: doc.data().recipientId,
+                recipientId: doc.data().recipientId,
                 recipientName: doc.data().recipientName, // Replace with the user's name
                 timestamp: doc.data().timestamp,
                 status: 'Accepted'

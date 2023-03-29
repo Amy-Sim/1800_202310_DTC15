@@ -406,12 +406,26 @@ function checkRequests() {
               alert(
                 `Congrats, you are paired! The phone number of the person your paired with will be emailed to you.`
               );
-              doc.ref.update({
-                status: "complete",
-              });
-              // doc.ref.delete();
+              db.collection("history").add({
+                  senderId: doc.data().senderId,
+                  senderName: doc.data().senderName,
+                  recipientId: doc.data().recipientId,
+                  recipientName: doc.data().recipientName,
+                  timestamp: doc.data().timestamp,
+                  status: 'Accepted'
+              })
+              doc.ref.delete();
+              
             } else if (doc.data().status === "failure") {
               alert(`Sorry, your request was declined.`);
+              db.collection("history").add({
+                senderId: doc.data().senderId,
+                senderName: doc.data().senderName,
+                recipientId: doc.data().recipientId,
+                recipientName: doc.data().recipientName,
+                timestamp: doc.data().timestamp,
+                status: 'Accepted'
+            })
               doc.ref.delete();
             }
           });
