@@ -48,29 +48,28 @@
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/style_blue.css">
-
+    
 </head>
 
 <body>
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
+    <!-- our own navbar goes here -->
+    <!-- <nav id="navbarPlaceholder"></nav> -->
+    <!-- the body of your page goes here -->
 
     <div class="background">
-        <div class="transbox">
-            <!-- our own navbar goes here -->
-            <div class="container">
-                <!-- <nav id="navbarPlaceholder"></nav> -->
-                <!-- the body of your page goes here -->
-                <!-- stuff -->
-                <div class="container text-center" style="padding-top: 40%;">
-                    <h1>Let's Login!</h1>
-                    <br>
-                </div>
-                <div id="firebaseui-auth-container"></div>
-                <div id="loader">Loading...</div>
+        <div class="container position-absolute top-50 start-50 translate-middle">
+            <!-- stuff -->
+            <div class="container text-center ">
+                <h1><strong>Let's Login!</strong></h1>
+                <br>
             </div>
+            <div id="firebaseui-auth-container"></div>
+            <div id="loader">Loading...</div>
         </div>
+    </div>
     </div>
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
