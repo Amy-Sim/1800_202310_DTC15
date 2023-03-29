@@ -413,6 +413,7 @@ function checkRequests() {
                   status: 'Accepted'
               })
               doc.ref.delete();
+              
             } else if (doc.data().status === "failure") {
               alert(`Sorry, your request was declined.`);
               db.collection("history").add({
