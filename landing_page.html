@@ -24,8 +24,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Other libraries go here -->
     <!-- Google Icons (Material Design)-->
@@ -48,26 +48,58 @@
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
     <link rel="stylesheet" href="./styles/style.css">
 
+    <style>
+        div.background {
+            background: url(./images/connections_bg.jpeg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 10% 10%;
+            border: 1px solid black;
+        }
+
+        div.transbox {
+            margin: 20px;
+            background-color: #ffffff;
+            border: 1px solid white;
+            opacity: 0.9;
+        }
+
+        div.transbox p {
+            margin: 0%;
+            color: #000000;
+        }
+    </style>
+
+
 </head>
 
 <body>
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
-    
+
     <!-- our own navbar goes here -->
-    <div class="container">
-        <nav id="navbarPlaceholder"></nav>
-        <!-- the body of your page goes here -->
-        <!-- stuff -->
-        <div class="container text-center">
-            <img class="d-block mx-auto mb-4" src="./images/buddyup.png" alt="" width="200" height="200">
-            <h1>Welcome to LiftBuddy</h1>
-            <a href="login.html" class="btn btn-info" role="button">Log in</a>
+    <div class="background">
+        <div class="transbox">
+            <div class="container text-center" style="padding: 10%;">
+                <!-- <nav id="navbarPlaceholder"></nav> -->
+                <!-- the body of your page goes here -->
+                <!-- stuff -->
+                <div class="container">
+                    <img class="d-block mx-auto mb-4" src="./images/liftbuddy_logo.png" alt="" width="200" height="200">
+                    <h1>Welcome to LiftBuddy</h1>
+                    <p> LiftBuddy to help commuters to get to work or school in times of extreme weather by developing a
+                        carpooling platform that is only accessible to internal employees or students specific to their
+                        workplace or school. Unlike our competitors that are available to the general public. </p>
+                    <br>
+                    <a href="login.html" class="btn btn-info" role="button"><strong> LOG IN </strong></a>
+                </div>
+                <!-- our own footer goes here-->
+                <nav id="footerPlaceholder"></nav>
+            </div>
         </div>
-        <!-- our own footer goes here-->
-        <nav id="footerPlaceholder"></nav>
-    </div>  
+    </div>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
