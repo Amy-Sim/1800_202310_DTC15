@@ -400,9 +400,9 @@ function checkRequests() {
           // Use onSnapshot() to listen for changes in the collection
           querySnapshot.forEach((doc) => {
             if (doc.data().status === "success") {
-              const phoneNumber = doc.data().phoneNumber;
+              // const phoneNumber = doc.data().phoneNumber;
               alert(
-                `Congrats, you are paired! The phone number of the person your paired with is: ${phoneNumber}.`
+                `Congrats, you are paired! The phone number of the person your paired with will be emailed to you.`
               );
               db.collection("history").add({
                   senderId: doc.data().senderId,
