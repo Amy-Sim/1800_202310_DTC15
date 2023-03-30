@@ -74,6 +74,35 @@
         </div>
     </div>
 
+    <div class="container text-center">
+        <h5>Show All Favourites </h5>
+        <div id="buddy-card-goes-here">
+            <div id="favouritesCardGroup" class=" row row-cols-auto"></div>
+        </div>
+    </div>
+
+    <template id="historyCardTemplate">
+        <div class="card" style="max-width: 100%;" >
+            <div class="row">
+                <div class="col-3" class="position-absolute top-50 start-0 translate-middle-y">
+                    <img src="../images/liftbuddy_logo.png" style="border-radius: 50%; width: 100%; height: auto;"
+                        class="img-fluid rounded position-relative top-50 start-50 translate-middle  top-50 start-50 translate-middle " alt="">
+                </div>
+                <div class="col">
+                    <div class="card-body align-baseline">
+                        <h1 class="card-title"><span id="buddy-name">Name</span></h1>
+                        <!-- <p class="card-text"><span id="buddy-title">Title</span></p> -->
+                        <p class="card-text"><span id="buddy-department">Department</span></p>
+                        <p class="card-text"><span id="buddy-gender">Department</span></p>
+                        <!-- <p class="card-text"><span id="buddy-status"></span></p>
+                        <p class="card-text">Last matched <span id="time-stamp"></span></p> -->
+                        <!-- <i class="material-icons">bookmark_border</i> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
     <footer id="footerPlaceholder"></footer>
 
     <!---------------------------------------------->
@@ -84,6 +113,7 @@
     <!-- <script src="./scripts/script.js"></script> -->
     <script src="./scripts/firebaseAPI_LiftBuddy_DTC15.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/favourites.js"></script>
 </body>
 
 </html>
