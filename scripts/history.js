@@ -40,7 +40,7 @@ function createHistoryCard(){
                     //so later we know which user to bookmark based on which user was clicked
                     historyCard.querySelector("i").id = "save-" + data.recipientId
                     // this line will call a function to save the hikes to the user's document             
-                    historyCard.querySelector('i').onclick = () => saveBookmark(data.recipientId);
+                    historyCard.querySelector('i').onclick = () => updateBookmark(data.recipientId);
 
                     currentUser.get().then(userDoc => {
                         //get the user name
@@ -73,7 +73,7 @@ function createHistoryCard(){
                     //so later we know which user to bookmark based on which user was clicked
                     historyCard.querySelector("i").id = "save-" + data.senderId
                     // this line will call a function to save the hikes to the user's document             
-                    historyCard.querySelector('i').onclick = () => saveBookmark(data.senderId);
+                    historyCard.querySelector('i').onclick = () => updateBookmark(data.senderId);
 
                     currentUser.get().then(userDoc => {
                         //get the user name
@@ -92,19 +92,57 @@ function createHistoryCard(){
     });
 }
 
-function saveBookmark(userID) {
-    currentUser.set({
-            bookmarks: firebase.firestore.FieldValue.arrayUnion(userID)
-        }, {
-            merge: true
-        })
-        .then(function () {
-            console.log("bookmark has been saved for: " + currentUser);
-            var iconID = 'save-' + userID;
-            //console.log(iconID);
-						//this is to change the icon of the hike that was saved to "filled"
-            document.getElementById(iconID).innerText = 'bookmark';
-        });
+// function saveBookmark(userID) {
+//     currentUser.set({
+//             bookmarks: firebase.firestore.FieldValue.arrayUnion(userID)
+//         }, {
+//             merge: true
+//         })
+//         .then(function () {
+//             console.log("bookmark has been saved for: " + currentUser);
+//             var iconID = 'save-' + userID;
+//             //console.log(iconID);
+// 						//this is to change the icon of the hike that was saved to "filled"
+//             document.getElementById(iconID).innerText = 'bookmark';
+//         });
+// }
+
+
+function updateBookmark(userID) {
+    currentUser.get().then((userDoc) => {
+    bookmarksNow = userDoc.data().bookmarks;
+      // console.log(bookmarksNow)
+
+  //check if this bookmark already existed in firestore:
+    if (bookmarksNow.includes(userID)) {
+        console.log(userID);
+  //if it does exist, then remove it
+        currentUser.update({
+            bookmarks: firebase.firestore.FieldValue.arrayRemove(userID),
+            })
+            .then(function () {
+            console.log("This bookmark is removed for" + currentUser);
+            var iconID = "save-" + userID;
+            console.log(iconID);
+            document.getElementById(iconID).innerText = "bookmark_border";
+            });
+        } else {
+  //if it does not exist, then add it
+        currentUser
+            .set({
+            bookmarks: firebase.firestore.FieldValue.arrayUnion(userID),
+            },
+            {
+            merge: true,
+            })
+            .then(function () {
+            console.log("This bookmark is for" + currentUser);
+            var iconID = "save-" + userID;
+            console.log(iconID);
+            document.getElementById(iconID).innerText = "bookmark";
+            });
+        }
+    });
 }
 
 createHistoryCard();
