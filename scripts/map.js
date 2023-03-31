@@ -216,9 +216,13 @@ function showMap(
                 // Send a buddyup request to the user
                 const request = {
                   senderId: currentUserUID,
-                  senderName: currentUserName, // Replace with your name
+                  senderName: currentUserName,
+                  senderDepartment: currentUserDepartment,
+                  senderGender: currentUserGender,
                   recipientId: userId,
-                  recipientName: user.data().name, // Replace with the user's name
+                  recipientName: user.data().name,
+                  recipientDepartment: user.data().department,
+                  recipientGender: user.data().gender,
                   message: "Would you like to buddy up?",
                   // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                   status: "pending",
@@ -410,8 +414,12 @@ function checkRequests() {
               db.collection("history").add({
                   senderId: doc.data().senderId,
                   senderName: doc.data().senderName,
+                  senderDepartment: doc.data().senderDepartment,
+                  senderGender: doc.data().senderGender,
                   recipientId: doc.data().recipientId,
                   recipientName: doc.data().recipientName,
+                  recipientDepartment: doc.data().recipientDepartment,
+                  recipientGender: doc.data().recipientGender,
                   // timestamp: doc.data().timestamp,
                   status: 'Accepted'
               })
@@ -419,14 +427,14 @@ function checkRequests() {
               
             } else if (doc.data().status === "failure") {
               alert(`Sorry, your request was declined.`);
-              db.collection("history").add({
-                senderId: doc.data().senderId,
-                senderName: doc.data().senderName,
-                recipientId: doc.data().recipientId,
-                recipientName: doc.data().recipientName,
-                // timestamp: doc.data().timestamp,
-                status: 'Accepted'
-            })
+              // db.collection("history").add({
+              //   senderId: doc.data().senderId,
+              //   senderName: doc.data().senderName,
+              //   recipientId: doc.data().recipientId,
+              //   recipientName: doc.data().recipientName,
+              //   // timestamp: doc.data().timestamp,
+              //   status: 'Accepted'
+              // })
               doc.ref.delete();
             }
           });

@@ -1,6 +1,9 @@
+var currentUser
+
 function createHistoryCard(){
     firebase.auth().onAuthStateChanged(function(user){
         if (user){
+            currentUser = db.collection("users").doc(user.uid)
             const historyCollection = db.collection('history');
             const historyCardGroup = document.querySelector('#historyCardGroup');
     
@@ -27,9 +30,25 @@ function createHistoryCard(){
 
                     //Populate the fields of the history card with data from FireStore
                     historyCard.querySelector('#buddy-name').textContent = data.recipientName;
-                    //historyCard.querySelector('.buddy-department').textContent = data.recipientDepartment;
-                    historyCard.querySelector('#buddy-status').textContent = data.status;
+                    historyCard.querySelector('#buddy-department').textContent = data.recipientDepartment;
+                    historyCard.querySelector('#buddy-gender').textContent = data.recipientGender;
+                    // historyCard.querySelector('#buddy-status').textContent = data.status;
                     //historyCard.querySelector('.time-stamp').textContent = data.date;
+                    
+                    // NEW LINES for bookmarking
+                    //this line sets the id attribute for the <i> tag in the format of "save-recipientID" 
+                    //so later we know which user to bookmark based on which user was clicked
+                    historyCard.querySelector("i").id = "save-" + data.recipientId
+                    // this line will call a function to save the hikes to the user's document             
+                    historyCard.querySelector('i').onclick = () => updateBookmark(data.recipientId);
+
+                    currentUser.get().then(userDoc => {
+                        //get the user name
+                        var bookmarks = userDoc.data().bookmarks;
+                        if (bookmarks.includes(data.recipientId)) {
+                            document.getElementById('save-' + data.recipientId).innerText = 'bookmark';
+                        }
+                    })
 
                     //Add the history card to the history card group
                     historyCardGroup.appendChild(historyCard);
@@ -43,15 +62,84 @@ function createHistoryCard(){
                     const historyCard = historyCardTemplate.content.cloneNode(true);
 
                     //Populate the fields of the history card with data from FireStore
-                    sender_name = historyCard.querySelector('#buddy-name').textContent = data.senderName;
-                    //historyCard.querySelector('.buddy-department').textContent = data.senderDepartment;
-                    historyCard.querySelector('#buddy-status').textContent = data.status;
+                    historyCard.querySelector('#buddy-name').textContent = data.senderName;
+                    historyCard.querySelector('#buddy-department').textContent = data.senderDepartment;
+                    historyCard.querySelector('#buddy-gender').textContent = data.senderGender;
+                    // historyCard.querySelector('#buddy-status').textContent = data.status;
                     //historyCard.querySelector('.time-stamp').textContent = data.date;
 
+                    // NEW LINES for bookmarking
+                    //this line sets the id attribute for the <i> tag in the format of "save-senderID" 
+                    //so later we know which user to bookmark based on which user was clicked
+                    historyCard.querySelector("i").id = "save-" + data.senderId
+                    // this line will call a function to save the hikes to the user's document             
+                    historyCard.querySelector('i').onclick = () => updateBookmark(data.senderId);
+
+                    currentUser.get().then(userDoc => {
+                        //get the user name
+                        var bookmarks = userDoc.data().bookmarks;
+                        if (bookmarks.includes(data.senderId)) {
+                            document.getElementById('save-' + data.senderId).innerText = 'bookmark';
+                        }
+                    })    
+
                     //Add the history card to the history card group
-                   
+                    historyCardGroup.appendChild(historyCard);
                 }
                 });
+            });
+        }
+    });
+}
+
+// function saveBookmark(userID) {
+//     currentUser.set({
+//             bookmarks: firebase.firestore.FieldValue.arrayUnion(userID)
+//         }, {
+//             merge: true
+//         })
+//         .then(function () {
+//             console.log("bookmark has been saved for: " + currentUser);
+//             var iconID = 'save-' + userID;
+//             //console.log(iconID);
+// 						//this is to change the icon of the hike that was saved to "filled"
+//             document.getElementById(iconID).innerText = 'bookmark';
+//         });
+// }
+
+
+function updateBookmark(userID) {
+    currentUser.get().then((userDoc) => {
+    bookmarksNow = userDoc.data().bookmarks;
+      // console.log(bookmarksNow)
+
+  //check if this bookmark already existed in firestore:
+    if (bookmarksNow.includes(userID)) {
+        console.log(userID);
+  //if it does exist, then remove it
+        currentUser.update({
+            bookmarks: firebase.firestore.FieldValue.arrayRemove(userID),
+            })
+            .then(function () {
+            console.log("This bookmark is removed for" + currentUser);
+            var iconID = "save-" + userID;
+            console.log(iconID);
+            document.getElementById(iconID).innerText = "bookmark_border";
+            });
+        } else {
+  //if it does not exist, then add it
+        currentUser
+            .set({
+            bookmarks: firebase.firestore.FieldValue.arrayUnion(userID),
+            },
+            {
+            merge: true,
+            })
+            .then(function () {
+            console.log("This bookmark is for" + currentUser);
+            var iconID = "save-" + userID;
+            console.log(iconID);
+            document.getElementById(iconID).innerText = "bookmark";
             });
         }
     });
