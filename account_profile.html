@@ -78,12 +78,13 @@
 
         
         <!-- Profile picture -->
-        <div class="container text-center py-3">
-            <img id="mypic-goes-here" src="../images/profile.jpg" width=50 height=50 />
-            <input type="file" id="mypic-input" accept="image/*" />
-        </div>
 
         <form>
+            <div class="container text-center py-3">
+                <img id="mypic-goes-here" src="../images/profile_image.jpg" width=200px height=200px style="border-radius: 100%;" />
+                <input type="file" id="mypic-input" accept="image/*" />
+            </div>
+    
             <fieldset class="mb-3" id="personalInfoFields" disabled>
                 <div class="form-group">
                     <label >Name</label>
@@ -182,6 +183,7 @@
     <script src="./scripts/firebaseAPI_LiftBuddy_DTC15.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/account_profile.js"></script>
+    <script src="./scripts/account_pic.js"></script>
 </body>
 
 </html>
