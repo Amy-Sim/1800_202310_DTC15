@@ -16,8 +16,7 @@ body{
 
 .navbar{
     background-color: white;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    padding: 20px;
 }
 
 /* Back Button Style */
@@ -47,7 +46,7 @@ a{
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: #90A4B0;
     margin-left: -5%;
     margin-right: -5%;
 }
