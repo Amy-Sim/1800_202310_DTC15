@@ -10,10 +10,11 @@ function chooseFileListener(){
 
         //the change event returns a file "e.target.files[0]"
 	      ImageFile = e.target.files[0];
-        var blob = URL.createObjectURL(ImageFile);
+        var user_image = URL.createObjectURL(ImageFile);
 
         //change the DOM img element source to point to this file
-        image.src = blob;    //assign the "src" property of the "img" tag
+        image.src = user_image;    //assign the "src" property of the "img" tag
     })
 }
 chooseFileListener();
+
