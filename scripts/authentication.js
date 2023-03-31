@@ -26,7 +26,8 @@ var uiConfig = {
                     gender: "please specify",
                     department: "Computer Systems Technology",
                     type: "passenger",                           // (corey) added type, made passenger the default                            
-                    buddyPairings: [],     // (corey) added buddyPairings by initializing an empty array
+                    buddyPairings: [],
+                    bookmarks: []     // (corey) added buddyPairings by initializing an empty array
               }).then(function () {
                     console.log("New user added to firestore");
                     window.location.assign("main.html");         //re-direct to main.html after signup
