@@ -24,8 +24,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Other libraries go here -->
     <!-- Google Icons (Material Design)-->
@@ -46,7 +47,7 @@
 
     <!-- Link to styles of your own -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
-    <link rel="stylesheet" href="./styles/style.css">   
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
@@ -57,121 +58,122 @@
     <div class="container">
         <nav id="navbarPlaceholder"></nav>
     </div>
-
-    <!-- Main Content -->
-    <div class="container text-center" style="margin: auto; width: 90%;">
-        <div class="row align-items-center">
-            <div class="col">
-                <button class="previousButton" onclick="history.back()">
-                    <span class="material-symbols-outlined">
-                        arrow_back_ios_new
+    <div class="container">
+        <!-- Main Content -->
+        <div class="container text-center" style="margin: auto; width: 90%;">
+            <div class="row align-items-center">
+                <div class="col">
+                    <button class="previousButton" onclick="history.back()">
+                        <span class="material-symbols-outlined">
+                            arrow_back_ios_new
                         </span>
-                </button>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <h2>
+                        <bold>Edit Profile</bold>
+                    </h2>
+                </div>
+                <div class="col"></div>
             </div>
-            <div class="col-6">
-                <h2><bold>Edit Profile</bold></h2>
-            </div>
-            <div class="col"></div>
+        </div>
+        <div class="container">
+            <form>
+                <!-- Profile picture -->
+                <div class="container text-center py-3">
+                    <img id="mypic-goes-here" src="images/profile_image.png" width=200px height=200px
+                        style="border-radius: 100%;" />
+                    <br>
+                    <input type="file" id="mypic-input" accept="image/*" />
+                </div>
+
+                <fieldset class="mb-3" id="personalInfoFields" disabled>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+                    </div>
+                    <br>
+                    <div class="form-check">
+                        <label>Department</label>
+                        <br>
+                        <input class="form-check-input" type="radio" name="departmentInput" id="cstInput">
+                        <label class="form-check-label" for="cstInput">
+                            Computer Systems Technology
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="departmentInput" id="citInput">
+                        <label class="form-check-label" for="citInput">
+                            Computer Information Technology
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="departmentInput" id="otherDepartmentInput">
+                        <label class="form-check-label" for="otherDepartmentInput">
+                            Other, Specify (optional):
+                        </label>
+                        <input type="text" id="departmentSpecify" class="form-control" placeholder="other">
+                    </div>
+                    <br>
+                    <!-- User can choose from Male, Female, or Other and specify if they don't fit into those categories -->
+                    <div class="form-check">
+                        <label>Gender</label>
+                        <br>
+                        <input class="form-check-input" type="radio" name="genderInput" id="maleInput">
+                        <label class="form-check-label" for="maleInput">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="genderInput" id="femaleInput">
+                        <label class="form-check-label" for="femaleInput">
+                            Female
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="genderInput" id="othergenderInput">
+                        <label class="form-check-label" for="othergenderInput">
+                            Other, Specify (optional):
+                        </label>
+                        <input type="text" id="genderSpecify" class="form-control" placeholder="other">
+                    </div>
+                    <br>
+                    <!-- User can easily change if they're a Driver or a Passenger -->
+                    <div class="form-check">
+                        <label>Are you a Driver or a Passenger?</label>
+                        <br>
+                        <input class="form-check-input" type="radio" name="typeOfUser" id="driverInput">
+                        <label class="form-check-label" for="driverInput">
+                            Driver
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="typeOfUser" id="passengerInput">
+                        <label class="form-check-label" for="passengerInput">
+                            Passenger
+                        </label>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" id="phoneInput" class="form-control" placeholder="Enter your phone number">
+                    </div>
+                </fieldset>
+                <div class="d-flex justify-content-end mt-5">
+                    <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                    <span style="width: 10px"></span>
+                    <button type="button" class="btn btn-info blue_colour_background"
+                        onclick="saveUserInfo()">Save</button>
+                </div>
+                <br>
+                <br>
+            </form>
+            <br>
         </div>
     </div>
-    <div class="container">
-
-        <form>
-            <!-- Profile picture -->
-            <div class="container text-center py-3">
-                <img id="mypic-goes-here" src="../images/profile_image.jpg" width=200px height=200px style="border-radius: 100%;" />
-                <input type="file" id="mypic-input" accept="image/*" />
-            </div>
     
-            <fieldset class="mb-3" id="personalInfoFields" disabled>
-                <div class="form-group">
-                    <label >Name</label>
-                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-                </div>
-                <br>
-                <div class="form-check">
-                    <label>Department</label>
-                    <br>
-                    <input class="form-check-input" type="radio" name="departmentInput" id="cstInput">
-                    <label class="form-check-label" for="cstInput">
-                        Computer Systems Technology
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="departmentInput" id="citInput">
-                    <label class="form-check-label" for="citInput">
-                        Computer Information Technology
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="departmentInput" id="otherDepartmentInput">
-                    <label class="form-check-label" for="otherDepartmentInput">
-                        Other, Specify (optional):
-                    </label>
-                    <input type="text" id="departmentSpecify" class="form-control" placeholder="other">
-                </div>
-                <br>
-                <!-- User can choose from Male, Female, or Other and specify if they don't fit into those categories -->
-                <div class="form-check">
-                    <label>Gender</label>
-                    <br>
-                    <input class="form-check-input" type="radio" name="genderInput" id="maleInput">
-                    <label class="form-check-label" for="maleInput">
-                        Male
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="genderInput" id="femaleInput">
-                    <label class="form-check-label" for="femaleInput">
-                        Female
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="genderInput" id="othergenderInput">
-                    <label class="form-check-label" for="othergenderInput">
-                        Other, Specify (optional):
-                    </label>
-                    <input type="text" id="genderSpecify" class="form-control" placeholder="other">
-                </div>
-                <br>
-                <!-- User can easily change if they're a Driver or a Passenger -->
-                <div class="form-check">
-                    <label>Are you a Driver or a Passenger?</label>
-                    <br>
-                    <input class="form-check-input" type="radio" name="typeOfUser" id="driverInput">
-                    <label class="form-check-label" for="driverInput">
-                        Driver
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="typeOfUser" id="passengerInput">
-                    <label class="form-check-label" for="passengerInput">
-                        Passenger
-                    </label>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label >Phone Number</label>
-                    <input type="text" id="phoneInput" class="form-control" placeholder="Enter your phone number">
-                </div>
-            </fieldset>
-            <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
-                <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info blue_colour_background" onclick="saveUserInfo()">Save</button>
-            </div>
-            <br>
-            <br>
-        </form>
-        <br>
-    </div>
-
-           
-        
-
-
     <nav id="footerPlaceholder"></nav>
-
+    </div>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
@@ -183,6 +185,7 @@
     <script src="./scripts/account_profile.js"></script>
     <script src="./scripts/profile_pic.js"></script>
     <script src="./scripts/account_settings.js"></script>
+
 </body>
 
 </html>

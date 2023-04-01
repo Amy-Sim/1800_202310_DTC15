@@ -27,8 +27,9 @@ var uiConfig = {
                     department: "Computer Systems Technology",
                     type: "passenger",                           // (corey) added type, made passenger the default                            
                     buddyPairings: [],
-                    bookmarks: []     // (corey) added buddyPairings by initializing an empty array
-              }).then(function () {
+                    bookmarks: [],                                // (corey) added buddyPairings by initializing an empty array
+                    profilePic: "/images/profile_image.png"            // (Fiona) added default image
+                  }).then(function () {
                     console.log("New user added to firestore");
                     window.location.assign("main.html");         //re-direct to main.html after signup
               }).catch(function (error) {

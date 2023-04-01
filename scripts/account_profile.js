@@ -65,7 +65,7 @@ function editUserInfo() {
 function saveUserInfo() {
     console.log("inside")
     //enter code here
-    
+
     //a) get user entered values
     var userName = document.getElementById("nameInput").value;
     var phoneNumber = document.getElementById("phoneInput").value;

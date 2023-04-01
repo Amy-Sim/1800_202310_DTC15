@@ -25,6 +25,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Other libraries go here -->
@@ -77,20 +78,11 @@
         <img id="mypic-goes-here" src="images/profile_image.png" width=200px height=200px
             style="border-radius: 100%;" />
     </div>
-
-    <div class="container text-center">
-        <div id="user-name-goes-here">
-            <h5> Name </h5>
-        </div>
-        <div id="user-department-goes-here">
-            <h5 style="font-size: small;"> Department </h5>
-        </div>
-    </div>
-
+    
     <!-- Display Name -->
     <template class="container text-center">
-        <h1 id="name-goes-here">Name</h1>
-        <h2 id="department-goes-here">Department</h2>
+        <span id="name-goes-here"><h1>Name</h1><br></span>
+        <span id="department-goes-here"><h2>Department</h2></span>
     </template>
 
     <!-- Table starts here -->
@@ -128,6 +120,7 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/account_settings.js"></script>
     <script src="./scripts/profile_pic.js"></script>
+    <!-- <script src="./scripts/main.js"></script> -->
 </body>
 
 </html>
