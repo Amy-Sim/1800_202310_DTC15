@@ -3,6 +3,7 @@ var currentUser
 function createHistoryCard(){
     firebase.auth().onAuthStateChanged(function(user){
         if (user){
+            removeHistoryRepeats()
             currentUser = db.collection("users").doc(user.uid)
             const historyCollection = db.collection('history');
             const historyCardGroup = document.querySelector('#historyCardGroup');
@@ -107,6 +108,34 @@ function createHistoryCard(){
 //         });
 // }
 
+function removeHistoryRepeats() {
+    firebase.auth().onAuthStateChanged(function(user){
+        if (user){
+            db.collection("history")
+                .get()
+                .then((allEvents) => {
+                    matched = [];
+                    allEvents.forEach((doc) => {
+                        if (user.uid == doc.data().senderId) {
+                            if (matched.includes(doc.data().recipientId) == false) {
+                                matched.push(doc.data().recipientId);
+                            } else {
+                                doc.ref.delete()
+                            }
+                        } 
+                        if (user.uid == doc.data().recipientId) {
+                            if (matched.includes(doc.data().senderId) == false) {
+                                matched.push(doc.data().senderId);
+                            } else {
+                                doc.ref.delete()
+                            }
+                        }
+                    });
+                });
+        };
+    })
+}
+
 
 function updateBookmark(userID) {
     currentUser.get().then((userDoc) => {
@@ -144,8 +173,9 @@ function updateBookmark(userID) {
         }
     });
 }
-
+// removeHistoryRepeats();
 createHistoryCard();
+
 
 
 
