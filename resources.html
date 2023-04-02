@@ -2,161 +2,173 @@
 <html lang="en">
 
 <head>
-    <title>LiftBuddy</title>
-    <meta name="LiftBuddy" content="My LiftBuddy App">
+  <title>LiftBuddy</title>
+  <meta name="LiftBuddy" content="My LiftBuddy App">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
-    <!-- Boostrap Library JS CDN  go here -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-- Other libraries go here -->
-    <!-- Google Icons (Material Design)-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <!-- Other libraries go here -->
+  <!-- Google Icons (Material Design)-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <!-- to use: 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- to use: 
         font-family: 'Manrope', sans-serif; 
         font-family: 'Montserrat', sans-serif; 
         font-family: 'Oswald', sans-serif; -->
 
-    <!-- Link to styles of your own -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
-    <link rel="stylesheet" href="./styles/style.css">
-
+  <!-- Link to styles of your own -->
+  <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+  <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
 
-    <!-- Nav bar -->
-    <nav id="navbarPlaceholder"></nav>
+  <!-- Nav bar -->
+  <nav id="navbarPlaceholder"></nav>
 
-    <div class="container text-center" style="margin: auto; width: 90%;">
-        <div class="row align-items-center">
-            <div class="col">
-                <button class="previousButton" onclick="history.back()">
-                    <span class="material-symbols-outlined">
-                        arrow_back_ios_new
-                        </span>
-                </button>
-            </div>
-            <div class="col">
-                <h1 style="margin-bottom: 10px;"><bold>Resources</bold></h1>
-            </div>
-            <div class="col"></div>
-        </div>
-        <br>
+  <div class="container text-center" style="margin: auto; width: 90%;">
+    <div class="row align-items-center">
+      <div class="col">
+        <button class="previousButton" onclick="history.back()">
+          <span class="material-symbols-outlined">
+            arrow_back_ios_new
+          </span>
+        </button>
+      </div>
+      <div class="col">
+        <h1 style="margin-bottom: 10px;">
+          <bold>Resources</bold>
+        </h1>
+      </div>
+      <div class="col"></div>
     </div>
+    <br>
+  </div>
 
-    <!--- Main content -->
+  <!--- Main content -->
+  <div class="container">
     <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://picsum.photos/id/555/100/100" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://picsum.photos/id/155/100/100" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://picsum.photos/id/434/100/100" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
       </div>
-
-      <div class="card column" style="width: 100%;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <a href="https://consciouscat.net/">
+            <img src="../resource_articles/cat.jpeg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Need a break? Check out adorable cat pictures</h5>
+              <p>Its purfect for you!</p>
+            </div>
+          </a>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+        <div class="carousel-item">
+          <a href="https://www.mentalfloss.com/article/68517/15-scientific-tricks-make-waiting-easier">
+            <img src="../resource_articles/yogasun.jpeg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Tired of wait? Needs some tips?</h5>
+              <p>Your mental health is a priority. Your happiness is essential. Your self-care is a necessity.</p>
+            </div></img>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">
+            <img src="../resource_articles/hand.jpeg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Need a hand?</h5>
+              <p>Here are some tips to calm yourself down.</p>
+            </div>
+          </a>
+        </div>
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <br>
+    <div class="card-group">
+      <div class="card">
+        <img src="../resource_articles/article1/extreme_heat.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Get prepared for severe weather</h5>
+          <p class="card-text">Extreme weather conditions pose a serious threat to the health and welfare of our
+            communities, and have the potential to lead to illnesses and fatalities. These weather events, such as
+            thunderstorms, hail, blizzards, strong winds, or heavy rainfall, can occur unexpectedly and at any time of
+            the year. An Extreme Heat Emergency is identified by a consistent rise in daytime and nighttime temperatures
+            that exceed the typical seasonal range.</p>
+          <a href="https://www2.gov.bc.ca/gov/content/safety/emergency-management/preparedbc/know-your-hazards/severe-weather"
+            class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../resource_articles/article2/stress.jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">How Climate Change Can Affect Your Mental Health</h5>
+          <p class="card-text">Climate change can impact mental health, and the CDC recognizes the importance of
+            promoting mental well-being.Extreme weather events and climate change can cause anxiety and post-traumatic
+            stress disorders. However, proactive planning can help communities promote mental health and build
+            resilience. It's important to understand the effects of climate change on mental health and take action to
+            support mental well-being.</p>
+          <a href="https://blogs.cdc.gov/yourhealthyourenvironment/2022/05/10/how-climate-change-can-affect-your-mental-health/"
+            class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br>
 
 
+  <footer id="footerPlaceholder"></footer>
 
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
 
-
-
-    <footer id="footerPlaceholder"></footer>
-
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-
-    <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
-    <script src="./scripts/firebaseAPI_LiftBuddy_DTC15.js"></script>
-    <script src="./scripts/skeleton.js"></script>
+  <!-- Link to scripts of your own -->
+  <!-- <script src="./scripts/script.js"></script> -->
+  <script src="./scripts/firebaseAPI_LiftBuddy_DTC15.js"></script>
+  <script src="./scripts/skeleton.js"></script>
 </body>
 
 </html>
