@@ -2,15 +2,13 @@
 
 ## 1. Project Description
 
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ...
+This browser based web application to serve transportation service to users in severe weather conditions, like snowstorms. floods, or extreme heat. Our app, LiftBuddy is a carpooling platform that is only accessible to internal employees or students specific to their workplace or school. LiftBuddy will help commuters to get to work or school in times of extreme weather.
 
 ## 2. Names of Contributors
 
-List team members and/or short bio's here... 
-* Amy Sim - I'm excited to join team 15! 
-* Corey McTavish - excited for this projects course
-* Fiona Wong- very excited for this project course
+* Amy Sim
+* Corey McTavish
+* Fiona Wong
 
 ## 3. Technologies and Resources Used
 
