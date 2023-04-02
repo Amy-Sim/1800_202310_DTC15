@@ -181,6 +181,9 @@ a{
     border: #67acff;
 }
 
+#mainButtonImg img {
+    width: 100%;
+}
 
 
 /* popup */
