@@ -66,6 +66,8 @@ function saveUserInfo() {
     console.log("inside")
     //enter code here
 
+    console.log('CHECK IF IMAGE UPLOAD EXISTS', localStorage.getItem('image-upload'))
+
     //a) get user entered values
     var userName = document.getElementById("nameInput").value;
     var phoneNumber = document.getElementById("phoneInput").value;

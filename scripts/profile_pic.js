@@ -8,6 +8,8 @@ function chooseFileListener() {
   //when this file changes, do something
   fileInput.addEventListener("change", function (e) {
     //the change event returns a file "e.target.files[0]"
+    // localStorage.setItem('image-upload', e.target.files[0])
+
     ImageFile = e.target.files[0];
     var blob = URL.createObjectURL(ImageFile);
 
