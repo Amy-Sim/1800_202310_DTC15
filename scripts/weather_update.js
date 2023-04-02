@@ -25,6 +25,7 @@ window.addEventListener('load', () => {
                     const { feels_like } = data.main;
                     const { image } = data.weather[0];
                     console.log(data);
+                    $("#weathericon").html(image);
                     $("#location").html(place);
                     $("#temp").html(temp);
                     $("#feelsLike").html(feels_like);

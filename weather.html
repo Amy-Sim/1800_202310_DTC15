@@ -57,94 +57,93 @@
     <!------------------------------>
 
     <!-- Nav bar -->
-    <div class="sticky-top">
-        <nav class="navbar">
-            <div class="container d-flex justify-content-around text-center" id="main_icons">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <a href="account_settings.html">
-                            <span class="material-symbols-outlined" id="user_setting_icon">
-                                account_circle
-                            </span>
-                            <div id="AccountIcon">Account</div>
-                        </a>
-                    </div>
-
-                    <div class="col">
-                        <a href="index.html">
-                            <span class="material-symbols-outlined" id="icons">
-                                home
-                            </span>
-                            <div id="homeIcon">Home</div>
-                        </a>
-
-                    </div>
-
-                    <div class="col">
-                        <a href="history.html">
-                            <span class="material-symbols-outlined" id="icons">
-                                history_edu
-                            </span>
-                            <div>History</div>
-                        </a>
-                    </div>
-
-                    <div class="col">
-                        <a href="favorites.html">
-                            <span class="material-symbols-outlined" id="icons">
-                                star
-                            </span>
-                            <div>Favorites</div>
-                        </a>
-                    </div>
-
-                    <div class="col">
-                        <a href="resources.html">
-                            <span class="material-symbols-outlined" id="icons">
-                                inventory_2
-                            </span>
-                            <div id="resourceIcon">Resources</div>
-                        </a>
+    <div class="container" style="background-image: url(../images/weatherbanner.jpg); background-position: center; height: 100%; background-size: cover; opacity: 0.9; ">
+        <div class="sticky-top">
+            <nav class="navbar">
+                <div class="container d-flex justify-content-around text-center" id="main_icons">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <a href="account_settings.html">
+                                <span class="material-symbols-outlined" id="user_setting_icon">
+                                    account_circle
+                                </span>
+                                <div id="AccountIcon">Account</div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="index.html">
+                                <span class="material-symbols-outlined" id="icons">
+                                    home
+                                </span>
+                                <div id="homeIcon">Home</div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="history.html">
+                                <span class="material-symbols-outlined" id="icons">
+                                    history_edu
+                                </span>
+                                <div>History</div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="favorites.html">
+                                <span class="material-symbols-outlined" id="icons">
+                                    star
+                                </span>
+                                <div>Favorites</div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="resources.html">
+                                <span class="material-symbols-outlined" id="icons">
+                                    inventory_2
+                                </span>
+                                <div id="resourceIcon">Resources</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-    </div>
-
-    <!-- Page title -->
-    <div class="container text-center" style="margin: auto; width: 90%;">
-        <div class="row align-items-center">
-            <div class="col">
-                <button class="previousButton" onclick="history.back()">
-                    <span class="material-symbols-outlined">
-                        arrow_back_ios_new
-                    </span>
-                </button>
-            </div>
-            <div class="col-6">
-                <h1 style="margin-bottom: 10px; padding: none">
-                    <bold style="font-weight:bold">Current Weather</bold>
-                </h1>
-            </div>
-            <div class="col"></div>
+            </nav>
         </div>
+        <!-- Page title -->
+        <div class="container text-center" style="margin: auto; width: 90%;">
+            <div class="row align-items-center">
+                <div class="col">
+                    <button class="previousButton" onclick="history.back()">
+                        <span class="material-symbols-outlined">
+                            arrow_back_ios_new
+                        </span>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <h1 style="margin-bottom: 10px; padding: 30px; font-weight: bolder;">
+                        <bold>Weather</bold>
+                    </h1>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-body position-relative" style="background-color:rgba(255,255,255,0.2);">
+                <br>
+                <!-- location -->
+                <h1 style="font-weight: bold; text-align: center;"><span id="location" style="font-weight: bolder;"> ... </span></h1>
+                <br>
+                <ul>
+                <h3 style="font-weight: bold;">Temperature: <span id="temp" style="font-weight: normal;"> ... </span></h3>
+                <br>
+                <h3 style="font-weight: bold;">Feels like: <span id="feelsLike" style="font-weight: normal;"> ... </span></h3>
+                <br>
+                <h3 style="font-weight: bold;">Description: <span id="description" style="font-weight: normal;"> ... </span>
+                </h3>
+                <br>
+                <h3 style="font-weight: bold;">Humidity:<span id="humidity" style="font-weight: normal;"> ... </span>%</h3>
+                </ul>
+            </div>
+        </div>
+        <footer id="footerPlaceholder"></footer>
     </div>
-
-    <div class="container" id="weatherInfo">
-        <br><br>
-        <h3 style="font-weight: bold;">Location: <span id="location" style="font-weight: normal;"> ... </span></h3>
-        <br>
-        <h3 style="font-weight: bold;">Temperature: <span id="temp" style="font-weight: normal;"> ... </span></h3>
-        <br>
-        <h3 style="font-weight: bold;">Feels like: <span id="feelsLike" style="font-weight: normal;"> ... </span></h3>
-        <br>
-        <h3 style="font-weight: bold;">Description: <span id="description" style="font-weight: normal;"> ... </span>
-        </h3>
-        <br>
-        <h3 style="font-weight: bold;">Humidity: <span id="humidity" style="font-weight: normal;"> ... </span></h3>
-    </div>
-
-    <footer id="footerPlaceholder"></footer>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
