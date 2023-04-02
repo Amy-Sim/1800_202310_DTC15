@@ -50,6 +50,27 @@
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
     <link rel="stylesheet" href="./styles/style.css">
 
+    <style>
+        .background {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .background::before {
+            content: "";
+            background-image: url("../images/weatherbanner.jpg");
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
 </head>
 
 <body>
@@ -58,7 +79,7 @@
     <!------------------------------>
 
     <!-- Nav bar -->
-    <div class="container" style="background-image: url(../images/weatherbanner.jpg); background-position: center; height: 100%; background-size: cover; opacity: 0.9; ">
+    <div class="background">
         <div class="sticky-top">
             <nav class="navbar">
                 <div class="container d-flex justify-content-around text-center" id="main_icons">
@@ -129,17 +150,22 @@
             <div class="card-body position-relative" style="background-color:rgba(255,255,255,0.2);">
                 <br>
                 <!-- location -->
-                <h1 style="font-weight: bold; text-align: center;"><span id="location" style="font-weight: bolder;"> ... </span></h1>
+                <h1 style="font-weight: bold; text-align: center;"><span id="location" style="font-weight: bolder;"> ...
+                    </span></h1>
                 <br>
                 <ul>
-                <h3 style="font-weight: bold;">Temperature: <span id="temp" style="font-weight: normal;"> ... </span></h3>
-                <br>
-                <h3 style="font-weight: bold;">Feels like: <span id="feelsLike" style="font-weight: normal;"> ... </span></h3>
-                <br>
-                <h3 style="font-weight: bold;">Description: <span id="description" style="font-weight: normal;"> ... </span>
-                </h3>
-                <br>
-                <h3 style="font-weight: bold;">Humidity:<span id="humidity" style="font-weight: normal;"> ... </span>%</h3>
+                    <h3 style="font-weight: bold;">Temperature: <span id="temp" style="font-weight: normal;"> ...
+                        </span></h3>
+                    <br>
+                    <h3 style="font-weight: bold;">Feels like: <span id="feelsLike" style="font-weight: normal;"> ...
+                        </span></h3>
+                    <br>
+                    <h3 style="font-weight: bold;">Description: <span id="description" style="font-weight: normal;"> ...
+                        </span>
+                    </h3>
+                    <br>
+                    <h3 style="font-weight: bold;">Humidity:<span id="humidity" style="font-weight: normal;"> ...
+                        </span>%</h3>
                 </ul>
             </div>
         </div>
