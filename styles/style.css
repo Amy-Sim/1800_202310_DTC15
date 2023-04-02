@@ -28,13 +28,9 @@ body{
     float: left;
 }
 
-.bigbutton{
+#mainButtonImg{
     filter: drop-shadow( -5px 15px 5px rgba(0, 0, 0, 0.5));
-    height: 300px;
-    width: 300px;
 }
-
-
 
 /* .alert_a_tag {
     text-decoration: none;
@@ -66,12 +62,6 @@ a{
 
 .alert {
     text-align: center;
-}
-
-.bigbutton img {
-    margin-top: 30px;
-    margin-left: 0px;
-    width: 100%;
 }
 
 #account_setting a {
