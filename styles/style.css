@@ -45,16 +45,16 @@ a{
 
 .yellow {
     background-color: #90A4B0;
-    margin-left: -5%;
-    margin-right: -5%;
+    /* margin-left: -5%;
+    margin-right: -5%; */
     opacity: 0.8;
 }
 
 /*#############*/
-.navbar {
+/* .navbar {
     margin-left: -5%;
     margin-right: -5%;
-}
+} */
 
 .redirect {
     text-decoration: none;
@@ -79,9 +79,9 @@ a{
 /*} */
 
 
-.navbar-toggler {
+/* .navbar-toggler {
     float: right;
-}
+} */
 
 #main_icons {
     font-size: 10px;
