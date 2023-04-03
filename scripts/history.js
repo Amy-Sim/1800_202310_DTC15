@@ -47,7 +47,7 @@ function createHistoryCard(){
                         //get the user name
                         var bookmarks = userDoc.data().bookmarks;
                         if (bookmarks.includes(data.recipientId)) {
-                            document.getElementById('save-' + data.recipientId).innerText = 'bookmark';
+                            document.getElementById('save-' + data.recipientId).innerText = 'star';
                         }
                     })
 
@@ -80,7 +80,7 @@ function createHistoryCard(){
                         //get the user name
                         var bookmarks = userDoc.data().bookmarks;
                         if (bookmarks.includes(data.senderId)) {
-                            document.getElementById('save-' + data.senderId).innerText = 'bookmark';
+                            document.getElementById('save-' + data.senderId).innerText = 'star';
                         }
                     })    
 
@@ -153,7 +153,7 @@ function updateBookmark(userID) {
             console.log("This bookmark is removed for" + currentUser);
             var iconID = "save-" + userID;
             console.log(iconID);
-            document.getElementById(iconID).innerText = "bookmark_border";
+            document.getElementById(iconID).innerText = "star_border";
             });
         } else {
   //if it does not exist, then add it
@@ -168,7 +168,7 @@ function updateBookmark(userID) {
             console.log("This bookmark is for" + currentUser);
             var iconID = "save-" + userID;
             console.log(iconID);
-            document.getElementById(iconID).innerText = "bookmark";
+            document.getElementById(iconID).innerText = "star";
             });
         }
     });
