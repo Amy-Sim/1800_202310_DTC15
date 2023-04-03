@@ -32,7 +32,7 @@ var uiConfig = {
             type: "passenger", // (corey) added type, made passenger the default
             buddyPairings: [],
             bookmarks: [], // (corey) added buddyPairings by initializing an empty array
-            profilePic: url, // (Amy) save the URL into user Collection
+            profilePic: "", // (Amy) save the URL into user Collection
           })
           .then(function () {
             console.log("New user added to firestore");
