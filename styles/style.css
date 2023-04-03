@@ -50,6 +50,20 @@ a{
     opacity: 0.8;
 }
 
+/* .alert a{
+    animation: move 20s infinite;
+    position: relative;
+    animation-timing-function: linear;
+    overflow: invisible;
+} */
+
+@keyframes move {
+    from {left:0px;}
+    to {left:520px;}
+}
+
+
+
 /*#############*/
 .navbar {
     margin-left: -5%;
@@ -60,20 +74,7 @@ a{
     text-decoration: none;
 }
 
-.alert {
-    text-align: left;
-}
 
-#weather{
-    animation: move 10s infinite;
-    position: relative;
-    animation-timing-function: linear;
-}
-
-@keyframes move {
-    from {left:0px;}
-    to {left:520px;}
-}
 
 
 #account_setting a {
@@ -204,9 +205,9 @@ body {
     padding: 20px;
 } */
 
-@media screen and (min-width: 400px) {
+/* @media screen and (min-width: 400px) {
     #mainButtonImg img {
         width: 380px;
     }
 }
-
+ */
