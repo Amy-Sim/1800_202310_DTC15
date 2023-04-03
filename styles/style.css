@@ -45,25 +45,24 @@ a{
 
 .yellow {
     background-color: #90A4B0;
+    /* padding-bottom: 40px; */
     margin-left: -5%;
     margin-right: -5%;
     opacity: 0.8;
 
 }
 
-#weather .alert a{
+/* .alert a{
     animation: move 10s infinite;
-    position: relative !important; 
+    position: fixed !important; 
     white-space: nowrap;
     animation-timing-function: linear;
-}
+} */
 
-@keyframes move {
+/* @keyframes move {
     from {left:0%;}
-    to {left:100%;}
-}
-
-
+    to {left:80%;}
+} */
 
 /*#############*/
 .navbar {
