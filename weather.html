@@ -48,7 +48,6 @@
         font-family: 'Oswald', sans-serif; -->
 
     <!-- Link to styles of your own -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
     <link rel="stylesheet" href="./styles/style.css">
 
     <style>
@@ -70,6 +69,14 @@
             opacity: 1;
             background-color: rgba(0, 0, 0, 0.5);
         }
+        #back_header {
+            color: white;
+            font-size: 30px;
+            margin: auto; width: 90%; 
+            background-color: transparent;
+            border: none;
+        }
+
     </style>
 
 </head>
@@ -87,41 +94,31 @@
                     <div class="row align-items-center">
                         <div class="col">
                             <a href="account_settings.html">
-                                <span class="material-symbols-outlined" id="user_setting_icon">
-                                    account_circle
-                                </span>
+                                <span class="material-symbols-outlined" id="user_setting_icon"> account_circle </span>
                                 <div id="AccountIcon">Account</div>
                             </a>
                         </div>
                         <div class="col">
                             <a href="index.html">
-                                <span class="material-symbols-outlined" id="icons">
-                                    home
-                                </span>
+                                <span class="material-symbols-outlined" id="icons"> home </span>
                                 <div id="homeIcon">Home</div>
                             </a>
                         </div>
                         <div class="col">
                             <a href="history.html">
-                                <span class="material-symbols-outlined" id="icons">
-                                    history_edu
-                                </span>
+                                <span class="material-symbols-outlined" id="icons"> history_edu </span>
                                 <div>History</div>
                             </a>
                         </div>
                         <div class="col">
                             <a href="favorites.html">
-                                <span class="material-symbols-outlined" id="icons">
-                                    star
-                                </span>
+                                <span class="material-symbols-outlined" id="icons"> star </span>
                                 <div>Favorites</div>
                             </a>
                         </div>
                         <div class="col">
                             <a href="resources.html">
-                                <span class="material-symbols-outlined" id="icons">
-                                    inventory_2
-                                </span>
+                                <span class="material-symbols-outlined" id="icons"> inventory_2 </span>
                                 <div id="resourceIcon">Resources</div>
                             </a>
                         </div>
@@ -129,8 +126,9 @@
                 </div>
             </nav>
         </div>
+
         <!-- Page title -->
-        <div class="container text-center" style="margin: auto; width: 90%;">
+        <div class="card text-center" id="back_header">
             <div class="row align-items-center">
                 <div class="col">
                     <button class="previousButton" onclick="history.back()">
@@ -139,15 +137,16 @@
                         </span>
                     </button>
                 </div>
-                <div class="col-6">
-                    <h1 style="margin-bottom: 10px; padding: 30px; font-weight: bolder;">
+                <div class="col-7">
+                    <h1 style="margin-bottom: 5px; padding: 30px; font-weight: bolder;">
                         <bold>Weather</bold>
                     </h1>
                 </div>
                 <div class="col"></div>
             </div>
         </div>
-        <div class="card mb-3">
+
+        <div class="card mb-3 p-auto">
             <div class="card-body position-relative" style="background-color:rgba(255,255,255,0.2);">
                 <br>
                 <!-- location -->
