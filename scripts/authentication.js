@@ -32,7 +32,7 @@ var uiConfig = {
             type: "passenger", // (corey) added type, made passenger the default
             buddyPairings: [],
             bookmarks: [], // (corey) added buddyPairings by initializing an empty array
-            profilePic: "../images/profile_image.png", // (Amy) save the URL into user Collection
+            // profilePic: "../images/profile_image.png", // Commented this out to do with profile pic (Corey)
           })
           .then(function () {
             console.log("New user added to firestore");
