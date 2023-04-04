@@ -38,30 +38,23 @@ body{
 } */
 
 /*########_WEATHER_BANNER_##########*/
-a{
+
+#weather{
+    background-color: #90A4B0;
+    margin-left: -5%;
+    margin-right: -5%;
+    opacity: 0.8;
+}
+
+#weather a {
     text-decoration: none;
     color: black;
 }
 
-.yellow {
-    background-color: #90A4B0;
-    /* padding-bottom: 40px; */
-    margin-left: -5%;
-    margin-right: -5%;
-    opacity: 0.8;
-
-}
-
-/* .alert a{
-    animation: move 10s infinite;
-    position: fixed !important; 
-    white-space: nowrap;
-    animation-timing-function: linear;
-} */
-
 /* @keyframes move {
-    from {left:0%;}
-    to {left:80%;}
+    100% {
+        transform: translateX(-100%);
+    }
 } */
 
 /*#############*/
