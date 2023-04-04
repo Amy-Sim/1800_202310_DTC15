@@ -26,13 +26,14 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Other libraries go here -->
     <!-- Google Icons (Material Design)-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,9 +57,9 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <!-- Nav bar -->
-    <div class="container">
-        <nav id="navbarPlaceholder"></nav>
-    </div>
+
+    <nav id="navbarPlaceholder"></nav>
+
 
     <div class="container text-center" style="margin: auto; width: 90%;">
         <div class="row align-items-center">
@@ -66,7 +67,7 @@
                 <button class="previousButton" onclick="history.back()">
                     <span class="material-symbols-outlined">
                         arrow_back_ios_new
-                        </span>
+                    </span>
                 </button>
             </div>
             <div class="col">
@@ -84,11 +85,12 @@
     </div>
 
     <template id="historyCardTemplate">
-        <div class="card" style="max-width: 100%;" >
+        <div class="card" style="max-width: 100%;">
             <div class="row">
                 <div class="col-3" class="position-absolute top-50 start-0 translate-middle-y">
                     <img src="../images/profile_image.png" style="border-radius: 50%; width: 100%; height: auto;"
-                        class="img-fluid rounded position-relative top-50 start-50 translate-middle  top-50 start-50 translate-middle " alt="">
+                        class="img-fluid rounded position-relative top-50 start-50 translate-middle  top-50 start-50 translate-middle "
+                        alt="">
                 </div>
                 <div class="col">
                     <div class="card-body">

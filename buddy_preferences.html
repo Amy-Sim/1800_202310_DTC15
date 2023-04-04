@@ -2,125 +2,130 @@
 <html lang="en">
 
 <head>
-    <title>LiftBuddy</title>
-    <link rel="icon" type="../images/liftbuddy_logo.png" href="../images/liftbuddy_logo.png">
-    <meta name="LiftBuddy" content="My LiftBuddy App">
+  <title>LiftBuddy</title>
+  <link rel="icon" type="../images/liftbuddy_logo.png" href="../images/liftbuddy_logo.png">
+  <meta name="LiftBuddy" content="My LiftBuddy App">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
-    <!-- Boostrap Library JS CDN  go here -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-- Other libraries go here -->
-    <!-- Google Icons (Material Design)-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <!-- Other libraries go here -->
+  <!-- Google Icons (Material Design)-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap"
-        rel="stylesheet">
-    <!-- to use: 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap"
+    rel="stylesheet">
+  <!-- to use: 
         font-family: 'Manrope', sans-serif; 
         font-family: 'Montserrat', sans-serif; 
         font-family: 'Oswald', sans-serif; -->
 
-    <!-- Link to styles of your own -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
-    <link rel="stylesheet" href="./styles/style.css">
-    
+  <!-- Link to styles of your own -->
+  <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+  <link rel="stylesheet" href="./styles/style.css">
+
 </head>
 
 <body>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
 
-    <!-- Nav bar -->
-    <div class="container">
-      <nav id="navbarPlaceholder"></nav>
+  <!-- Nav bar -->
+
+  <nav id="navbarPlaceholder"></nav>
+
+  <div class="container">
+    <button class="previousButton" onclick="history.back()">
+      <span class="material-symbols-outlined">
+        arrow_back_ios_new
+      </span>
+    </button>
+  </div>
+  <div class="container">
+    <br>
+    <br>
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+      Note: your buddy preference by default will show users on your map in different departments and different genders
+      to you.
     </div>
-    <div class="container">
-      <button class="previousButton" onclick="history.back()"> 
-        <span class="material-symbols-outlined">
-          arrow_back_ios_new
-          </span>
-      </button>
+    <br>
+    <p>Turn on the following buddy preferences if you want us to show you only buddies from the same department, the
+      same gender or both:</p>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="departmentSwitch">
+      <label class="form-check-label" for="departmentSwitch">Department</label>
     </div>
-    <div class="container">
-        <br>
-        <br>
-        <div class="alert alert-warning d-flex align-items-center" role="alert">
-          Note: your buddy preference by default will show users on your map in different departments and different genders to you.
-        </div>
-        <br>
-        <p>Turn on the following buddy preferences if you want us to show you only buddies from the same department, the same gender or both:</p>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="departmentSwitch">
-          <label class="form-check-label" for="departmentSwitch">Department</label>
-        </div>
-        <br>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="genderSwitch">
-          <label class="form-check-label" for="genderSwitch">Gender</label>
-        </div>
-        <br>
-        <br>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary blue_colour_background" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Save Changes
-        </button>
-        
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <!-- <div class="modal-body">
+    <br>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="genderSwitch">
+      <label class="form-check-label" for="genderSwitch">Gender</label>
+    </div>
+    <br>
+    <br>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary blue_colour_background" data-bs-toggle="modal"
+      data-bs-target="#exampleModal">
+      Save Changes
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <!-- <div class="modal-body">
                 ...
               </div> -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Restore to Default</button>
-                <button type="button" class="btn btn-primary" id="saveBuddyPreferences" data-bs-dismiss="modal">Save</button>
-              </div>
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Restore to Default</button>
+            <button type="button" class="btn btn-primary" id="saveBuddyPreferences"
+              data-bs-dismiss="modal">Save</button>
           </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
 
-    <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
-    <script src="./scripts/firebaseAPI_LiftBuddy_DTC15.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/buddy_preferences.js"></script>
+  <!-- Link to scripts of your own -->
+  <!-- <script src="./scripts/script.js"></script> -->
+  <script src="./scripts/firebaseAPI_LiftBuddy_DTC15.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/buddy_preferences.js"></script>
 </body>
 
 </html>
