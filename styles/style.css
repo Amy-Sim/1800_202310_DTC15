@@ -44,6 +44,7 @@ body{
     margin-left: -5%;
     margin-right: -5%;
     opacity: 0.8;
+    text-align: right;
 }
 
 #weather a {
@@ -57,9 +58,7 @@ div h4 {
 }
 
 @keyframes move {
-    100% {
-        transform: translateX(-100%);
-    }
+    100% {transform: translateX(-100%);}
 }
 
 /*#############*/
