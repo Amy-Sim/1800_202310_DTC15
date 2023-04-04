@@ -68,11 +68,11 @@ div h4 {
     100% {transform: translateX(-100%);}
 }
 
-/*#############*/
-/* .navbar {
-    margin-left: -5%;
-    margin-right: -5%;
-} */
+#map{
+    width: 100vw;
+    height: 100vh;
+}
+
 
 .redirect {
     text-decoration: none;
@@ -208,6 +208,6 @@ body {
 
 @media screen and (min-width: 400px) {
     #mainButtonImg img {
-        width: 380px;
+        width: 350px;
     }
 }
