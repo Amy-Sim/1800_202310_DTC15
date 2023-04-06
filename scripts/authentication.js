@@ -25,14 +25,13 @@ var uiConfig = {
             name: user.displayName, //"users" collection
             email: user.email, //with authenticated user's ID (user.uid)
             country: "Canada",
-            genderPreference: false, // (corey) added genderPreferences
-            departmentPreference: false, // (corey) added departmentPreferences
+            genderPreference: false, // added genderPreferences
+            departmentPreference: false, // added departmentPreferences
             gender: "please specify",
             department: "Computer Systems Technology",
-            type: "passenger", // (corey) added type, made passenger the default
+            type: "passenger", // added type, made passenger the default
             buddyPairings: [],
-            bookmarks: [], // (corey) added buddyPairings by initializing an empty array
-            // profilePic: "../images/profile_image.png", // Commented this out to do with profile pic (Corey)
+            bookmarks: [], // added an empty array for bookmarks
           })
           .then(function () {
             console.log("New user added to firestore");
@@ -56,13 +55,7 @@ var uiConfig = {
   signInFlow: "popup",
   signInSuccessUrl: "main.html",
   signInOptions: [
-    //   Leave the lines as is for the providers you want to offer your users.
-    //   firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    //   firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    //   firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    //   firebase.auth.GithubAuthProvider.PROVIDER_ID,
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    //   firebase.auth.PhoneAuthProvider.PROVIDER_ID
   ],
   // Terms of service url.
   tosUrl: "<your-tos-url>",
