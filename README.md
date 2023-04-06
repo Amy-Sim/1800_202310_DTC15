@@ -17,16 +17,16 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 - HTML, CSS, JavaScript
 - Bootstrap 5.0 (Frontend library)
 - Firebase 8.0 (BAAS - Backend as a Service)
-- ...
+- Weather API 
 
 ## 4. Complete setup/installion/usage
 
 State what a user needs to do when they come to your project. How do others start using your code or application?
 Here are the steps ...
 
-- ...
-- ...
-- ...
+- Ask team members where they have left off in their coding. 
+- Follow commented code lines to see where the team member left off. 
+- Read the html files first then start looking at the JS file. 
 
 ## 5. Known Bugs and Limitations
 
@@ -40,9 +40,9 @@ Here are some known bugs:
 
 What we'd like to build in the future:
 
-- ...
-- ...
-- ...
+- Editable profile picture in accoutn settings 
+- Nicer UI design through the app
+- Hoovering colours for navbar's icons
 
 ## 7. Contents of Folder
 
