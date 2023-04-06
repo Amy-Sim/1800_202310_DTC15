@@ -39,7 +39,7 @@ body{
     filter: drop-shadow( -5px 15px 5px rgba(0, 0, 0, 0.5));
 }
 
-/*########_WEATHER_BANNER_##########*/
+/* Weather banner */
 
 #weather{
     background-color: #90A4B0;

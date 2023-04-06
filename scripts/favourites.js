@@ -19,7 +19,7 @@ function getBookmarks(user) {
             console.log(bookmarks);
 						
 			// Get pointer the new card template
-            let newcardTemplate = document.getElementById("historyCardTemplate");
+            let newcardTemplate = document.getElementById("favoritesCardTemplate");
 
 			// Iterate through the ARRAY of bookmarked users (document ID's)
             bookmarks.forEach(thisUserID => {

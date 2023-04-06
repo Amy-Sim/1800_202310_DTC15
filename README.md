@@ -40,7 +40,7 @@ Here are some known bugs:
 
 What we'd like to build in the future:
 
-- Editable profile picture in accoutn settings 
+- Editable profile picture in account settings 
 - Nicer UI design through the app
 - Hoovering colours for navbar's icons
 
