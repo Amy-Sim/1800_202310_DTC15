@@ -51,17 +51,46 @@ Content of the project folder:
 ```
  Top level of project folder:
 ├── .gitignore               # Git ignore file
+├── .firebaserc                
+├── firebase.json                
+├── firebase.index.json                
+├── firebase.rules                
+├── README.md
 ├── index.html               # landing HTML file, this is what users see when you come to url
-└── README.md
+├── 404.html
+├── about_us.html
+├── account_profile.html
+├── account_settings.html
+├── buddy_preferences.html
+├── favorites.html
+├── history.html
+├── home.html
+├── login.html
+├── main.html
+├── map.html
+├── resources.html
+├── weather.html
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
     /blah.jpg                # Acknowledge source
 ├── scripts                  # Folder for scripts
-    /blah.js                 #
+    /account_profile.js
+    /account_settings.js
+    /authentication.js
+    /buddy_preferences.js
+    /favourites.js
+    /firebaseAPI_LiftBuddyDTC15.js
+    /history.js
+    /main.js
+    /map.js
+    /script.js
+    /skeleton.js
+    /weather_update.js
 ├── styles                   # Folder for styles
-    /blah.css                #
+    /style_blue.css
+    /style_.css
 
 
 
