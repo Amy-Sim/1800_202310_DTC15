@@ -43,44 +43,30 @@ function showMap(
           }
         });
 
-        // READING information from "events" collection in Firestore
+        // READING information from "users" collection in Firestore
         db.collection("users")
           .get()
           .then((allEvents) => {
-            const features = []; // Defines an empty array for information to be added to
+            const features = []; // Defines an empty array for users to be added to
             allEvents.forEach((doc) => {
-              let ID = doc.id;
-              console.log(ID);
-              lat = doc.data().lat;
-              lng = doc.data().lng;
-              console.log(lat, lng);
-              coordinates = [lng, lat];
-              console.log(coordinates);
+              let ID = doc.id; // User ID (Document ID)
+              lat = doc.data().lat; // User Latitude
+              lng = doc.data().lng; // User Longitude
+              coordinates = [lng, lat]; // User Coordinates
               user_name = doc.data().name; // User Name
               gender = doc.data().gender; // User Gender
               department = doc.data().department; // User Department
-              type = doc.data().type;
-              genderPreference = doc.data().genderPreference;
-              departmentPreference = doc.data().departmentPreference;
-              console.log(
-                genderPreference,
-                departmentPreference,
-                gender,
-                department
-              );
-              console.log(
-                currentUserGenderPreferences,
-                currentUserDepartmentPreferences,
-                currentUserGender,
-                currentUserDepartment
-              );
-              // (corey) added a control structure to account for the current user's preferences and each user's preferences
-              if (ID != currentUser.uid && currentUserType != type) {
-                if (
+              type = doc.data().type; // User Type (if they are a driver or a passenger)
+              genderPreference = doc.data().genderPreference; // User gender buddy preferences
+              departmentPreference = doc.data().departmentPreference; // User department buddy preferences
+
+              // added a control structure to account for the current user's preferences compared to each user's preferences in the database
+              if (ID != currentUser.uid && currentUserType != type) { // If the user is not the current user and the user is not the same type (driver or passenger) as the current user
+                if ( // if currentUser and user being compared to have the same gender and department
                   currentUserGender == gender &&
                   currentUserDepartment == department
                 ) {
-                  // Pushes information into the features array
+                  // Scenario 1 where it pushes the user being compared to into the features array for them to be displayed on the map
                   features.push({
                     type: "Feature",
                     properties: {
@@ -95,15 +81,15 @@ function showMap(
                       coordinates: coordinates,
                     },
                   });
-                } else if (
+                } else if ( // if currentuser and user being compared to have same gender but are in different departments
                   currentUserGender == gender &&
                   currentUserDepartment != department
                 ) {
-                  if (
+                  if ( // if the current user has department preferences turned off and the user being compared to has department preferences turned off also
                     currentUserDepartmentPreferences == false &&
                     departmentPreference == false
                   ) {
-                    // Pushes information into the features array
+                    // Scenario 2 where it pushes the user being compared to into the features array for them to be displayed on the map
                     features.push({
                       type: "Feature",
                       properties: {
@@ -119,17 +105,17 @@ function showMap(
                       },
                     });
                   }
-                } else if (
+                } else if ( // if current user and user being compared to have different genders and are in different departments
                   currentUserGender != gender &&
                   currentUserDepartment != department
                 ) {
-                  if (
+                  if ( // if all buddy preferences for current and users being compared to are turned off
                     currentUserDepartmentPreferences == false &&
                     departmentPreference == false &&
                     currentUserGenderPreferences == false &&
                     genderPreference == false
                   ) {
-                    // Pushes information into the features array
+                    // Scenario 3 where it pushes the user being compared to into the features array for them to be displayed on the map
                     features.push({
                       type: "Feature",
                       properties: {
@@ -145,15 +131,15 @@ function showMap(
                       },
                     });
                   }
-                } else if (
+                } else if ( // if current user and user being compared to have different genders but are in the same department
                   currentUserGender != gender &&
                   currentUserDepartment == department
                 ) {
-                  if (
+                  if ( // if current users gender preference is turned off and the user being compared to gender preference is turned off
                     currentUserGenderPreferences == false &&
                     genderPreference == false
                   ) {
-                    // Pushes information into the features array
+                    // Scenario 4 where it pushes the user being compared to into the features array for them to be displayed on the map
                     features.push({
                       type: "Feature",
                       properties: {
@@ -192,7 +178,7 @@ function showMap(
                 "icon-allow-overlap": true, // Allows icons to overlap
               },
             });
-            // Map On Click function that creates a popup, displaying previously defined information from "events" collection in Firestore
+            // Map On Click function that creates a popup, displaying previously defined information from "users" collection in Firestore
             map.on("click", "places", (e) => {
               // Copy coordinates array.
               const coordinates = e.features[0].geometry.coordinates.slice();
@@ -224,7 +210,6 @@ function showMap(
                   recipientDepartment: user.data().department,
                   recipientGender: user.data().gender,
                   message: "Would you like to buddy up?",
-                  // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                   status: "pending",
                 };
                 await db.collection("requests").add(request);
@@ -363,7 +348,6 @@ function listenForBuddyUpRequest() {
               )
             ) {
               // User clicked "OK" or "Accept"
-              // Handle the accept logic here
               doc.ref
                 .update({
                   status: "success",
@@ -373,7 +357,6 @@ function listenForBuddyUpRequest() {
                 });
             } else {
               // User clicked "Cancel" or "Decline"
-              // Handle the decline logic here
               doc.ref
                 .update({
                   status: "failure",
@@ -420,21 +403,12 @@ function checkRequests() {
                   recipientName: doc.data().recipientName,
                   recipientDepartment: doc.data().recipientDepartment,
                   recipientGender: doc.data().recipientGender,
-                  // timestamp: doc.data().timestamp,
                   status: 'Accepted'
               })
               doc.ref.delete();
               
             } else if (doc.data().status === "failure") {
               alert(`Sorry, your request was declined.`);
-              // db.collection("history").add({
-              //   senderId: doc.data().senderId,
-              //   senderName: doc.data().senderName,
-              //   recipientId: doc.data().recipientId,
-              //   recipientName: doc.data().recipientName,
-              //   // timestamp: doc.data().timestamp,
-              //   status: 'Accepted'
-              // })
               doc.ref.delete();
             }
           });
@@ -447,8 +421,6 @@ function checkRequests() {
 
 
 $(document).ready(function () {
-  // (Amy's code) Add the button onclick event funciion here:
-
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       db.collection("users")
@@ -462,14 +434,9 @@ $(document).ready(function () {
             var gender = doc.data().gender;
             var department = doc.data().department;
             var type = doc.data().type;
-            console.log(
-              genderPreferences,
-              departmentPreferences,
-              gender,
-              department,
-              type
-            );
+            // get the current users gender, department, buddy preferences and type to compare to other users in the showMap function
             storeUserLocation(user);
+            // Call the function to display the map with the current user's location and other user pins
             showMap(
               user,
               departmentPreferences,
@@ -485,5 +452,4 @@ $(document).ready(function () {
         });
     }
   });
-  // Call the function to display the map with the user's location and event pins
 });
