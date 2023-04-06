@@ -16,6 +16,7 @@ $(document).ready(function () {
             });
         }
     });
+    // save the buddy preferences to the database
     document.getElementById("saveBuddyPreferences").addEventListener("click", function() {
         var user = firebase.auth().currentUser;
         var departmentPreference = document.getElementById("departmentSwitch").checked
