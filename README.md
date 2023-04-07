@@ -42,7 +42,7 @@ What we'd like to build in the future:
 
 - Editable profile picture in account settings 
 - Nicer UI design through the app
-- Hoovering colours for navbar's icons
+- Hovering colours for navbar's icons
 
 ## 7. Contents of Folder
 
@@ -57,24 +57,28 @@ Content of the project folder:
 ├── firebase.rules                
 ├── README.md
 ├── index.html               # landing HTML file, this is what users see when you come to url
-├── 404.html
-├── about_us.html
-├── account_profile.html
-├── account_settings.html
-├── buddy_preferences.html
-├── favorites.html
-├── history.html
-├── home.html
 ├── login.html
 ├── main.html
-├── map.html
-├── resources.html
-├── weather.html
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
+    /abstract_blue.jpg
+    /bigBtnMap.png
+    /bigbtnwithmap.png
+    /buddyup.png
+    /buddyup1.png
+    /buddyup3.png
+    /connections_bg.jpeg
+    /darkblue_grid_bg.jpeg
+    /drink1.png
+    /drink2.png
+    /drink3.png
+    /image.png
+    /liftbuddy_logo.png
+    /map2.png
+    /profile_image.png
+    /weatherbanner.jpg
 ├── scripts                  # Folder for scripts
     /account_profile.js
     /account_settings.js
@@ -91,6 +95,34 @@ It has the following subfolders and files:
 ├── styles                   # Folder for styles
     /style_blue.css
     /style_.css
+├── text                     # Folder for html_pages
+    /404.html
+    /back_button.html
+    /footer.html
+    /nav_after_login.html
+    /nav_before_login.html
+├── html_pages               # Secondd folder for html_pages
+    /about_us.html
+    /account_profile.html
+    /account_settings.html
+    /buddy_preferences.html
+    /favorites.html
+    /history.html
+    /home.html
+    /map.html
+    /resources.html
+    /weather.html
+├── page_templates
+    /default_layout.html
+    /empty_page_no_header.html
+├── resource_articles
+    ├── article1
+        /extreme_heat.png
+    ├── article2
+        /stress.jpeg
+    /cat.jpeg
+    /hand.jpeg
+    /yogasun.jpeg
 
 
 
