@@ -26,17 +26,27 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 State what a user needs to do when they come to your project. How do others start using your code or application?
 Here are the steps ...
 
-- Ask team members where they have left off in their coding. 
-- Follow commented code lines to see where the team member left off. 
-- Read the html files first then start looking at the JS file. 
-
+Setup and Installation
 To start using our project, users should follow these steps: 
     1. Clone the project repository.
-    2. Install necessary dependancies listed in source files. (do we have one?? would install a proper term?)
-    3. User should set up his/her own firebase along with Authentication and Cloud Firestore.
+    2. Install necessary dependancies listed in source files. 
+    3. User should set up their own firebase along with Authentication and Cloud Firestore.
     4. Use the provided scripts and commands to run the project.
     5. User may modify source code as appropriate for the desired use case. 
     6. If encountering issues or errors, consult the project documentation or seek assistance from the project team.  
+
+Usage
+To use our application, please visit https://comp1800-202310dtc15.web.app/
+    1. Sign up with your workplace or school institution email or sign in if you have an account with us already.
+    2. Click "Account" to personalize your settings.
+    3. Click "Home" to buddy up. Initinalize the pairing protocol.
+    4. Select the driver or passagener that you want to be pair up.
+    5. Click "History" to view previous drivers/passengers.
+    6. Click the star icon if you want to favourite a driver/passenger.
+    7. Click "Favourites" bookmarked buddies will show up.
+    8. Click weather banner, to check the weather
+    9. Cick on "Resources", for articales relating to hental health. 
+
 
 ## 5. Known Bugs and Limitations
 
