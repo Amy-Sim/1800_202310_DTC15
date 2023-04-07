@@ -20,11 +20,9 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 - Bootstrap 5.0 (Frontend library)
 - Firebase 8.0 (BAAS - Backend as a Service)
 - Weather API 
+- Google Material Icons 
 
 ## 4. Complete setup/installion/usage
-
-State what a user needs to do when they come to your project. How do others start using your code or application?
-Here are the steps ...
 
 Setup and Installation
 To start using our project, users should follow these steps: 
@@ -70,73 +68,74 @@ Content of the project folder:
 
 ```
  Top level of project folder:
-├── .gitignore                       # Git ignore file
-├── .firebaserc                
-├── firebase.json                
-├── firebase.index.json                
-├── firebase.rules                
-├── README.md
-├── index.html                       # landing HTML file, this is what users see when you come to url
-├── login.html
-├── main.html
+├── .gitignore                       # Git ignore file for git repo
+├── .firebaserc                      # Chooses the Firebase project to be used for hosting.
+├── firebase.json                    # Specifies which files should be used for hosting.  
+├── firebase.index.json              # Defines indexes for the Cloud Firestore database in Firebase
+├── firebase.rules                   # Defines firestore rules           
+├── README.md                        # Readme file
+├── index.html                       # Landing HTML file, this is what users see when you come to url
+├── login.html                       # Login page
+└── main.html                        # Welcome page after login
 
-It has the following subfolders and files:
+Subfolders and files:
 ├── .git                            # Folder for git repo
+
 ├── images                          # Folder for images
-    /abstract_blue.jpg
-    /bigBtnMap.png
-    /bigbtnwithmap.png
-    /buddyup.png
-    /buddyup1.png
-    /buddyup3.png
-    /connections_bg.jpeg
-    /darkblue_grid_bg.jpeg
-    /liftbuddy_logo.png
-    /profile_image.png
-    /weatherbanner.jpg
+    /abstract_blue.jpg              # General background image    
+    /buddyup3.png                   # Big button image
+    /connections_bg.jpeg            # Background image for login page
+    /liftbuddy_logo.png             # Logo of liftbuddy
+    /profile_image.png              # Profile image
+    /weatherbanner.jpg              # Background image for weather page
+
 ├── scripts                         # Folder for scripts
-    /account_profile.js
-    /account_settings.js
-    /authentication.js
-    /buddy_preferences.js
-    /favourites.js
-    /firebaseAPI_LiftBuddyDTC15.js  # Not available in this repo
-    /history.js
-    /main.js
-    /map.js
-    /script.js
-    /skeleton.js
-    /weather_update.js
+    /account_profile.js             # User account profile function
+    /account_settings.js            # User account setting function 
+    /authentication.js              # User authentication function
+    /buddy_preferences.js           # Buddy preference setting function
+    /favourites.js                  # Favourites function 
+    /firebaseAPI_LiftBuddyDTC15.js  # Firebase API - Not available in this repo
+    /history.js                     # History function 
+    /main.js                        # Function for main page that displays welcome message
+    /map.js                         # Map function with MAPBOX
+    /skeleton.js                    # Load nav, footer, header function
+    /weather_update.js              # Weather reporting function
+
 ├── styles                          # Folder for styles
-    /style_blue.css
-    /style_.css
-├── text                             # Folder for html_pages
-    /404.html
-    /back_button.html
-    /footer.html
-    /nav_after_login.html
-    /nav_before_login.html
+    /style_blue.css                 # Style for background
+    /style_.css                     # General style
+
+├── text                            # Folder for html_pages
+    /404.html                       # File not found page 
+    /back_button.html               # Back button
+    /footer.html                    # Footer
+    /nav_after_login.html           # nav bar after login
+    /nav_before_login.html          # nav bar before login
+
 ├── html_pages                      # Secondd folder for html_pages
-    /about_us.html
-    /account_profile.html
-    /account_settings.html
-    /buddy_preferences.html
-    /favorites.html
-    /history.html
-    /home.html
-    /map.html
-    /resources.html
-    /weather.html
-├── page_templates
-    /default_layout.html
-    /empty_page_no_header.html
-├── resource_articles
-    ├── article1
-        /extreme_heat.png
-    ├── article2
-        /stress.jpeg
-    /cat.jpeg
-    /hand.jpeg
-    /yogasun.jpeg
+    /about_us.html                  # About us page                  
+    /account_profile.html           # Account profile page
+    /account_settings.html          # Account setting page
+    /buddy_preferences.html         # Buddy prefereneces page
+    /favorites.html                 # Favorites page
+    /history.html                   # History page
+    /home.html                      # Home page
+    /map.html                       # Map page
+    /resources.html                 # Resources page
+    /weather.html                   # Weather page
+
+├── page_templates                  # Folder for html templates
+    /default_layout.html            # Default layout page
+    /empty_page_no_header.html      # Empty page without header
+
+├── resource_articles               # Folder for resource article references
+    ├── article1                    # Folder for article 1
+        /extreme_heat.png           # Image for extreme heat
+    ├── article2                    # Folder for article 2
+        /stress.jpeg                # Image for stress
+    /cat.jpeg                       # Cat image
+    /hand.jpeg                      # Hand image
+    /yogasun.jpeg                   # Yoga image
 
 ```
