@@ -6,7 +6,6 @@ function insertName() {
                 var user_name = doc.data().name;
                 $("#name-goes-here").text(user_name);
             });
-
         } else {
             // No user is signed in.
         }
