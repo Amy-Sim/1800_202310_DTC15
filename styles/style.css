@@ -40,7 +40,6 @@ body{
 }
 
 /* Weather banner */
-
 #weather{
     background-color: #90A4B0;
     margin-left: -5%;
@@ -103,7 +102,6 @@ div h4 {
 
 /* search window style */
 .form-control {
-    /* width: 200%; */
     border-radius: 5px;
     padding: 0.1rem 1.1rem 0.1rem 1.5rem;
 }

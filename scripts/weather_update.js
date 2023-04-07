@@ -34,4 +34,3 @@ window.addEventListener('load', () => {
                     $("#wind").html(speed);
                 })}); 
 }});
-
