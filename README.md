@@ -42,8 +42,8 @@ To use our application, please visit https://comp1800-202310dtc15.web.app/
     5. Click "History" to view previous drivers/passengers.
     6. Click the star icon if you want to favourite a driver/passenger.
     7. Click "Favourites" bookmarked buddies will show up.
-    8. Click weather banner, to check the weather
-    9. Cick on "Resources", for articales relating to mental health. 
+    8. Click weather banner, to check the current weather
+    9. Cick on "Resources", for articles relating to mental health. 
 
 
 ## 5. Known Bugs and Limitations
