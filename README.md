@@ -1,5 +1,7 @@
 # Project Title
 
+LiftBuddy - the carpooling app that is only accessible to internal employees or students
+
 ## 1. Project Description
 
 This browser based web application to serve transportation service to users in severe weather conditions, like snowstorms. floods, or extreme heat. Our app, LiftBuddy is a carpooling platform that is only accessible to internal employees or students specific to their workplace or school. LiftBuddy will help commuters to get to work or school in times of extreme weather.
@@ -28,6 +30,14 @@ Here are the steps ...
 - Follow commented code lines to see where the team member left off. 
 - Read the html files first then start looking at the JS file. 
 
+To start using our project, users should follow these steps: 
+    1. Clone the project repository.
+    2. Install necessary dependancies listed in source files. (do we have one?? would install a proper term?)
+    3. User should set up his/her own firebase along with Authentication and Cloud Firestore.
+    4. Use the provided scripts and commands to run the project.
+    5. User may modify source code as appropriate for the desired use case. 
+    6. If encountering issues or errors, consult the project documentation or seek assistance from the project team.  
+
 ## 5. Known Bugs and Limitations
 
 Here are some known bugs:
@@ -50,19 +60,19 @@ Content of the project folder:
 
 ```
  Top level of project folder:
-├── .gitignore               # Git ignore file
+├── .gitignore                       # Git ignore file
 ├── .firebaserc                
 ├── firebase.json                
 ├── firebase.index.json                
 ├── firebase.rules                
 ├── README.md
-├── index.html               # landing HTML file, this is what users see when you come to url
+├── index.html                       # landing HTML file, this is what users see when you come to url
 ├── login.html
 ├── main.html
 
 It has the following subfolders and files:
-├── .git                     # Folder for git repo
-├── images                   # Folder for images
+├── .git                            # Folder for git repo
+├── images                          # Folder for images
     /abstract_blue.jpg
     /bigBtnMap.png
     /bigbtnwithmap.png
@@ -71,37 +81,32 @@ It has the following subfolders and files:
     /buddyup3.png
     /connections_bg.jpeg
     /darkblue_grid_bg.jpeg
-    /drink1.png
-    /drink2.png
-    /drink3.png
-    /image.png
     /liftbuddy_logo.png
-    /map2.png
     /profile_image.png
     /weatherbanner.jpg
-├── scripts                  # Folder for scripts
+├── scripts                         # Folder for scripts
     /account_profile.js
     /account_settings.js
     /authentication.js
     /buddy_preferences.js
     /favourites.js
-    /firebaseAPI_LiftBuddyDTC15.js
+    /firebaseAPI_LiftBuddyDTC15.js  # Not available in this repo
     /history.js
     /main.js
     /map.js
     /script.js
     /skeleton.js
     /weather_update.js
-├── styles                   # Folder for styles
+├── styles                          # Folder for styles
     /style_blue.css
     /style_.css
-├── text                     # Folder for html_pages
+├── text                             # Folder for html_pages
     /404.html
     /back_button.html
     /footer.html
     /nav_after_login.html
     /nav_before_login.html
-├── html_pages               # Secondd folder for html_pages
+├── html_pages                      # Secondd folder for html_pages
     /about_us.html
     /account_profile.html
     /account_settings.html
@@ -123,7 +128,5 @@ It has the following subfolders and files:
     /cat.jpeg
     /hand.jpeg
     /yogasun.jpeg
-
-
 
 ```
