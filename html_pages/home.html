@@ -43,64 +43,23 @@
         rel="stylesheet">
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
 
 </head>
 
 <body>
     <nav id="navbarPlaceholder"></nav>
-
-    <div class="container">
-        <button class="previousButton" onclick="history.back()">
-            <span class="material-symbols-outlined">
-                arrow_back_ios_new
-            </span>
-        </button>
-    </div>
-    <br>
-
-    <!-- Profile picture -->
-    <div class="container text-center py-3">
-        <img id="mypic-goes-here" src="../images/profile_image.png" width=200px height=200px
-            style="border-radius: 100%;" />
-        <div>
-            <h1 style="font-weight: bold"><span id="name-goes-here">...</h1>
-        </div>
-        <span id="department-goes-here">...</span>
+    <div class="text-center">
+        <br>
+        <br>
+        <a id="mainButtonImg" href="map.html"><img src="../images/buddyup3.png" alt="buddyupimg"></a>
     </div>
 
-    <!-- Table starts here -->
-    <div class="container">
-        <div class="row list-group">
-            <a href="buddy_preferences.html" class="list-group-item list-group-item-action"> <span
-                    class="material-symbols-outlined settings_icons">
-                    group
-                </span>Buddy Preferences</a>
-            <a href="account_profile.html" class="list-group-item list-group-item-action"> <span
-                    class="material-symbols-outlined settings_icons">
-                    edit
-                </span>Edit Profile</a>
-            <a href="about_us.html" id="aboutUs" class="list-group-item list-group-item-action"> <span
-                    class="material-symbols-outlined">
-                    contact_support
-                </span>
-                </span>About Us</a>
-            <a href="index.html" id="logout" class="list-group-item list-group-item-action"> <span
-                    class="material-symbols-outlined settings_icons">
-                    logout
-                </span>Logout</a>
-
-        </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <nav id="footerPlaceholder"></nav>
+    <footer id="footerPlaceholder"></footer>
 
     <!-- Link to scripts of your own -->
-    <script src="./scripts/firebaseAPI_LiftBuddy_DTC15.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/account_settings.js"></script>
+    <script src="../scripts/firebaseAPI_LiftBuddy_DTC15.js"></script>
+    <script src="../scripts/skeleton.js"></script>
 </body>
 
 </html>
