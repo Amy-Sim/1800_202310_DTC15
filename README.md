@@ -34,7 +34,6 @@ To start using our project, users should follow these steps:
     6. If encountering issues or errors, consult the project documentation or seek assistance from the project team.  
 
 Usage
-To use our application, please visit https://comp1800-202310dtc15.web.app/
     1. Sign up with your workplace or school institution email or sign in if you have an account with us already.
     2. Click "Account" to personalize your settings.
     3. Click "Home" to buddy up. Initinalize the pairing protocol.
